@@ -1,5 +1,7 @@
 html {
-  background:#505D6E asset-url("body5.jpg") no-repeat center center fixed;
+  background-image: asset-url("body5.jpg");
+  background-repeat: none-repeat;
+  background-position: center center;
   min-height:100%;
   -webkit-background-size: cover;
      -moz-background-size: cover;
