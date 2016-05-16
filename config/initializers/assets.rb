@@ -13,6 +13,6 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( home.scss )
 # Rails.application.config.assets.precompile += %w( home.js )
 
-%w( home agency ).each do |controller|
+%w( home themes/agency ).each do |controller|
   Rails.application.config.assets.precompile += ["#{controller}.js", "#{controller}.scss"]
 end

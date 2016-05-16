@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
   root "home#index"
-  get "agency" => "agency#index"
+  namespace :themes do
+    get "/agency", to: "agency#index"
+  end
 end
