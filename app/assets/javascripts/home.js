@@ -5,9 +5,7 @@ var current_item = 0;
 var section_hide_time = 1300;
 var section_show_time = 1300;
 
-// jQuery stuff
 jQuery(document).ready(function($) {
-
   // Switch section
   $("a", '.mainmenu').click(function()
   {
@@ -22,5 +20,21 @@ jQuery(document).ready(function($) {
       } );
     }
     return false;
+  });
+
+  // LOGIN MODAL
+  $(document).on('click','.signup-tab',function(e){
+    e.preventDefault();
+      $('#signup-taba').tab('show');
+  });
+
+  $(document).on('click','.signin-tab',function(e){
+      e.preventDefault();
+      $('#signin-taba').tab('show');
+  });
+
+  $(document).on('click','.forgetpass-tab',function(e){
+    e.preventDefault();
+      $('#forgetpass-taba').tab('show');
   });
 });
