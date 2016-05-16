@@ -8,10 +8,10 @@ gem "bootstrap-sass", "~> 3.3.6"
 gem "sass-rails", ">= 3.2"
 gem "font-awesome-sass", "~> 4.6.2"
 gem "jquery-easing-rails"
+gem 'devise'
 
 # gem "railties", "~> 4.2", ">= 4.2.6"
 # gem "jqBootstrapValidation", "~> 1.3", ">= 1.3.6"
-
 # gem "rails_12factor"
 
 gem "uglifier", ">= 1.3.0"
