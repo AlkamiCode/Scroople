@@ -1,6 +1,6 @@
-class CreateLogos < ActiveRecord::Migration
+class CreateThemes < ActiveRecord::Migration
   def change
-    create_table :logos do |t|
+    create_table :themes do |t|
       t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false
