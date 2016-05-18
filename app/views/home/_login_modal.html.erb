@@ -25,7 +25,7 @@
                   <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                          <input type="hidden" name="authenticity_token" value="2Sci2U0M5TpJNAhlgsqsRrv58V92HuuOrcoIxNnAFIqJpGdScMwohXvBtGKnaV8cvjw8+sQyFZ+hNmzWdbiTmA==">
+                          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
                           <input type="email" value="" name="user[email]" class="form-control" id="user_email" placeholder="Email">
                       </div>
                       <span class="help-block has-error" id="email-error"></span>
@@ -37,6 +37,8 @@
                       </div>
                       <span class="help-block has-error" id="password-error"></span>
                     </div>
+                    <input name="user[remember_me]" type="hidden" value="0"><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me">
+                    <label for="user_remember_me">Remember me</label>
                     <button type="submit" name="commit" id="login_btn" class="btn btn-block bt-login" data-loading-text="Signing In....">Login</button>
                     <div class="clearfix"></div>
                     <div class="login-modal-footer">
@@ -57,22 +59,31 @@
                     &nbsp;&nbsp;
                     <span id="registration_fail" class="response_error" style="display: none;">Registration failed, please try again.</span>
                   <div class="clearfix"></div>
-                  <form>
+                  <form class="new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post">
+                  <input name="utf8" type="hidden" value="✓">
+                  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
                   <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                          <input type="text" class="form-control" id="username" placeholder="Username">
+                          <input type="email" value="" name="user[email]" class="form-control" id="user_email" placeholder="Email">
                       </div>
-                      <span class="help-block has-error" data-error='0' id="username-error"></span>
+                      <span class="help-block has-error" data-error='0' id="user_email-error"></span>
                     </div>
                     <div class="form-group">
                       <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-at"></i></div>
-                          <input type="text" class="form-control" id="remail" placeholder="Email">
+                          <div class="input-group-addon"><i class="fa fa-key"></i></div>
+                          <input type="password" name="user[password]" class="form-control" id="user_password" placeholder="Password (8 characters minimum)">
                       </div>
-                      <span class="help-block has-error" data-error='0' id="remail-error"></span>
+                      <span class="help-block has-error" data-error='0' id="user_password-error"></span>
                     </div>
-                    <button type="button" id="register_btn" class="btn btn-block bt-login" data-loading-text="Registering....">Register</button>
+                    <div class="form-group">
+                      <div class="input-group">
+                          <div class="input-group-addon"><i class="fa fa-key"></i></div>
+                          <input type="password" name="user[password_confirmation]" class="form-control" id="user_password_confirmation" placeholder="Password Confirmation">
+                      </div>
+                      <span class="help-block has-error" data-error='0' id="user_password-error"></span>
+                    </div>
+                    <button type="submit" name="commit" id="register_btn" class="btn btn-block bt-login" data-loading-text="Registering....">Register</button>
                   <div class="clearfix"></div>
                   <div class="login-modal-footer">
                       <div class="row">

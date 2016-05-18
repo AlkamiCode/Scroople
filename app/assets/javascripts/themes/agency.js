@@ -28,8 +28,6 @@ $(document).ready(function() {
   });
 
 
-
-
   /**
    * cbpAnimatedHeader.js v1.0.0
    * http://www.codrops.com
@@ -42,9 +40,9 @@ $(document).ready(function() {
    */
   var cbpAnimatedHeader = (function() {
 
-    var docElem = document.documentElement,
-      header = document.querySelector( '.navbar-default' ),
-      didScroll = false,
+    var docElem      = document.documentElement,
+      header         = document.querySelector( '.navbar-default' ),
+      didScroll      = false,
       changeHeaderOn = 300;
 
     function init() {
