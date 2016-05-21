@@ -23,13 +23,20 @@ gem "turbolinks"
 gem "jbuilder", "~> 2.0"
 gem "sdoc", "~> 0.4.0", group: :doc
 
-gem "simplecov", :require => false, :group => :test
-
 group :development, :test do
-  gem "pry"
+  gem 'pry'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'pry-rails'
+  gem 'capybara'
+  gem 'launchy'
 end
 
 group :development do
   gem "web-console", "~> 2.0"
   gem "spring"
+end
+
+group :test do
+  gem "simplecov", :require => false
 end
