@@ -8,5 +8,5 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true, presence: true,
   format: { with: VALID_EMAIL_REGEX }
 
-  has_one :theme
+  has_one :agency_theme
 end
