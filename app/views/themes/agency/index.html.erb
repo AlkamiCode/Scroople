@@ -42,14 +42,10 @@
             <div class="intro-text">
                 <div class="intro-lead-in">Welcome To Our Studio!</div>
                 <div class="intro-heading">It's Nice To Meet You</div>
-                <% if current_user && current_user.theme.title == "agency" %>
-                     <script type="text/javascript">
-                        window.location = "<%= themes_agency_path(id: current_user.id) %>";
-                    </script>
-                <% elsif current_user && current_user.theme.title != "agency" %>
-                    <%= link_to "Choose This Theme!", themes_agency_path(theme_title: "agency", user_id: current_user.id), method: "POST", class: "page-scroll btn btn-xl" %>
+                <% if current_user %>
+                    <%= link_to "Choose This Theme", themes_agency_index_path(id: current_user.id), method: "POST", class: "page-scroll btn btn-xl" %>
                 <% else %>
-                    <a class="btn btn-xl" href="" data-toggle="modal" data-target="#loginModal"> Choose This Theme</a>
+                    <a class="btn btn-xl" href="" data-toggle="modal" data-target="#loginModal"> Register Or Login To Choose Theme</a>
                 <% end %>
             </div>
         </div>

@@ -3,12 +3,11 @@ class Themes::AgencyController < ApplicationController
   end
 
   def show
-    @user  = User.find(params[:user_id])
+    @user  = User.find(params[:id])
   end
 
   def create
-    AgencyTheme.create(title: params[:theme_title], user_id: params[:user_id])
-    # redirect to themes/whatever-theme/user_id
-    redirect_to :themes_agency_path(params[:user_id])
+    AgencyTheme.create(title: "agency", user_id: params[:id])
+    redirect_to controller: 'agency', action: 'show', id: params[:id]
   end
 end
