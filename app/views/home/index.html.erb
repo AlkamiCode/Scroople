@@ -60,9 +60,9 @@
               <h3>Agency</h3>
               <p>Agency is a stylish, one page Bootstrap theme for agencies and small businesses.</p>
               <% if current_user && current_user.theme.title == "agency" %>
-                <p><a href="<%= themes_agency_path %>" class="btn btn-default" role="button">Your Current Theme</a></p>
+                <p><%= link_to "Your Current Theme", themes_agency_path(id: current_user.id), class: "btn btn-default" %>
               <% else %>
-                <p><a href="<%= themes_agency_path %>" class="btn btn-default" role="button">Preview Theme</a></p>
+                <p><a href="<%= themes_agency_index_path %>" class="btn btn-default" role="button">Preview Theme</a></p>
               <% end %>
             </div>
           </div>
