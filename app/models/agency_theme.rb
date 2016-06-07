@@ -1,5 +1,5 @@
 class AgencyTheme < ActiveRecord::Base
-  has_one :user
+  belongs_to :user
 
   has_attached_file :brand_logo, styles: {
     # thumb: '100x100>',
