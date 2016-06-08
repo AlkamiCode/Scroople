@@ -73,7 +73,7 @@
 
             $(".intro-lead-in").one("click", function(){
                 var innerContent = $(this).text()
-                $(this).after("<div class='form-group'><input type='text' class='form-control' id='' placeholder='"+innerContent+"' autofocus></div>")
+                $(this).after("<form class='form-inline'><div class='form-group'><input type='text' class='form-control' id='' placeholder='"+innerContent+"' autofocus></div><button type='submit' class='btn btn-danger'>Cancel</button><button type='submit' class='btn btn-success'>Submit</button></div>")
 
                 $('input').on('inputchange', function() {
                     $('.intro-lead-in').text(this.value);
@@ -81,25 +81,6 @@
             })
 
 
-            // $(".intro-lead-in").one("click", function(){
-            //     $(this).after("<input placeholder='edit me'><p></p>")
-            // })
-
-            // $(".intro-lead-in").one("click", function(){
-            //     var innerContent = $(this).text()
-            //     $(this).after("<div class='live-input' class='form-group'><input type='text' class='form-control' id='' placeholder='"+innerContent+"' autofocus></div>")
-
-
-            //     $('.live-input').on('inputchange', function() {
-            //         $('.intro-lead-in').text(this.value);
-            //     });
-
-                // $( ".live-input" ).keydown(function(key) {
-                //   var keyPressed = String.fromCharCode(key.keyCode)
-                //   $(".intro-lead-in").text(keyPressed)
-                // });
-
-                // debugger;
                 // var userId  = $(this).attr("id")
                 // var newData = $(this).text()
                 // $.ajax({
@@ -110,8 +91,6 @@
                 //         console.log(result)
                 //     }
                 // });
-            // })
-
 
         })
     </script>
