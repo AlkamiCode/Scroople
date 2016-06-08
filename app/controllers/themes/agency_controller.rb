@@ -14,9 +14,10 @@ class Themes::AgencyController < ApplicationController
   end
 
   def update
-    agency_theme = AgencyTheme.find(params[:user_id])
-    agency_theme.update(intro_lead_in: params[:intro_lead_in])
+    agency_theme        = AgencyTheme.find(params[:theme_id])
+    agency_theme_column = params[:theme_column]
+    agency_theme.update(agency_theme_column => params[:new_column_value])
 
-    respond_with AgencyTheme.find(params[:user_id])
+    respond_with "something"
   end
 end

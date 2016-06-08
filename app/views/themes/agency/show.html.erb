@@ -40,9 +40,7 @@
     <header>
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in" id="<%= @user.agency_theme.id %>" data-column="intro_lead_in"><%= @user.agency_theme.intro_lead_in %></div>
-
-
+                <div class="intro-lead-in" data-theme-id="<%= @user.agency_theme.id %>" data-theme-column="intro_lead_in"><%= @user.agency_theme.intro_lead_in %></div>
 
                 <div class="intro-heading"><%= @user.agency_theme.intro_heading %></div>
                 <a href="#services" class="page-scroll btn btn-xl">Learn More</a>
@@ -71,7 +69,6 @@
                 }
             }
 
-
             $(".intro-lead-in").on("click", function(element){
                 var innerContent = $(this).text()
 
@@ -91,23 +88,25 @@
                     })
 
                     $(".btn-success").on("click", function() {
-                        $(".form-inline").remove()
+                        var themeID        = $(this).parent().prev().data("theme-id")
+                        var themeColumn    = $(this).parent().prev().data("theme-column")
+                        var newColumnValue = $(this).siblings().find("input").val()
+
+                        $.ajax({
+                            url: "/themes/agency/" + themeID,
+                            type: "PUT",
+                            data: {theme_id: themeID, theme_column: themeColumn, new_column_value: newColumnValue},
+                            success: function(result) {
+                                console.log(result)
+                                $(".form-inline").remove()
+                            }
+                        })
                     })
                 }
             })
 
 
 
-                // var userId  = $(this).attr("id")
-                // var newData = $(this).text()
-                // $.ajax({
-                //     url: "/themes/agency/" + userId,
-                //     type: "PUT",
-                //     data: {user_id: userId, intro_lead_in: "Welcome To Our huh?"},
-                //     success: function(result) {
-                //         console.log(result)
-                //     }
-                // })
 
         })
     </script>
