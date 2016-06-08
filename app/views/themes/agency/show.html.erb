@@ -54,31 +54,48 @@
         $(document).ready(function(){
             $.event.special.inputchange = {
                 setup: function() {
-                    var self = this, val;
+                    var self = this, val
                     $.data(this, 'timer', window.setInterval(function() {
-                        val = self.value;
+                        val = self.value
                         if ( $.data( self, 'cache') != val ) {
-                            $.data( self, 'cache', val );
-                            $( self ).trigger( 'inputchange' );
+                            $.data( self, 'cache', val )
+                            $( self ).trigger( 'inputchange' )
                         }
-                    }, 20));
+                    }, 20))
                 },
                 teardown: function() {
-                    window.clearInterval( $.data(this, 'timer') );
+                    window.clearInterval( $.data(this, 'timer') )
                 },
                 add: function() {
-                    $.data(this, 'cache', this.value);
+                    $.data(this, 'cache', this.value)
                 }
-            };
+            }
 
-            $(".intro-lead-in").one("click", function(){
+
+            $(".intro-lead-in").on("click", function(element){
                 var innerContent = $(this).text()
-                $(this).after("<form class='form-inline'><div class='form-group'><input type='text' class='form-control' id='' placeholder='"+innerContent+"' autofocus></div><button type='submit' class='btn btn-danger'>Cancel</button><button type='submit' class='btn btn-success'>Submit</button></div>")
 
-                $('input').on('inputchange', function() {
-                    $('.intro-lead-in').text(this.value);
-                });
+                if($(".form-inline").size() !== 0){
+                    element.preventDefault()
+                } else {
+
+                    $(this).after("<form class='form-inline'><div class='form-group'><input type='text' class='form-control' id='' placeholder='"+innerContent+"' autofocus></div><button type='button' data-original-content='"+innerContent+"' class='btn btn-danger'>Cancel</button><button type='button' class='btn btn-success'>Submit</button></div>")
+
+                    $('input').on('inputchange', function() {
+                        $('.intro-lead-in').text(this.value)
+                    })
+
+                    $(".btn-danger").on("click", function() {
+                        $(".intro-lead-in").text($(this).data("original-content"))
+                        $('.form-inline').remove()
+                    })
+
+                    $(".btn-success").on("click", function() {
+                        $(".form-inline").remove()
+                    })
+                }
             })
+
 
 
                 // var userId  = $(this).attr("id")
@@ -90,7 +107,7 @@
                 //     success: function(result) {
                 //         console.log(result)
                 //     }
-                // });
+                // })
 
         })
     </script>
@@ -448,7 +465,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Your Website 2014</span>
+                    <span class="copyright">Copyright &copy Your Website 2014</span>
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline social-buttons">
