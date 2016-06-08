@@ -12,6 +12,7 @@ gem "devise"
 gem "paperclip"
 gem "aws-sdk", "~> 2.3"
 gem "figaro"
+gem "responders"
 
 # gem "railties", "~> 4.2", ">= 4.2.6"
 # gem "jqBootstrapValidation", "~> 1.3", ">= 1.3.6"

@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   root "home#index"
 
   namespace :themes do
-    resources :agency, only: [:index, :show, :create]
+    resources :agency
   end
 end

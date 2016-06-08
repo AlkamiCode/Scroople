@@ -1,7 +1,7 @@
 class AgencyTheme < ActiveRecord::Base
   belongs_to :user
 
-  has_attached_file :brand_logo, styles: {
+  has_attached_file :brand_logo, default_url: "themes/agency/logos/creative-market.jpg", styles: {
     # thumb: '100x100>',
     # square: '200x200#',
     # medium: '300x300>'
