@@ -40,7 +40,10 @@
     <header>
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in" id="<%= @user.id %>"><%= @user.agency_theme.intro_lead_in %></div>
+                <div class="intro-lead-in" id="<%= @user.agency_theme.id %>" data-column="intro_lead_in"><%= @user.agency_theme.intro_lead_in %></div>
+
+
+
                 <div class="intro-heading"><%= @user.agency_theme.intro_heading %></div>
                 <a href="#services" class="page-scroll btn btn-xl">Learn More</a>
             </div>
@@ -49,18 +52,67 @@
 
     <script>
         $(document).ready(function(){
-            $(".intro-lead-in").click(function(){
-                var userId  = $(this).attr("id")
-                var newData = $(this).text()
-                $.ajax({
-                    url: "/themes/agency/" + userId,
-                    type: "PUT",
-                    data: {user_id: userId, intro_lead_in: "Welcome To Our huh?"},
-                    success: function(result) {
-                        console.log(result)
-                    }
+            $.event.special.inputchange = {
+                setup: function() {
+                    var self = this, val;
+                    $.data(this, 'timer', window.setInterval(function() {
+                        val = self.value;
+                        if ( $.data( self, 'cache') != val ) {
+                            $.data( self, 'cache', val );
+                            $( self ).trigger( 'inputchange' );
+                        }
+                    }, 20));
+                },
+                teardown: function() {
+                    window.clearInterval( $.data(this, 'timer') );
+                },
+                add: function() {
+                    $.data(this, 'cache', this.value);
+                }
+            };
+
+            $(".intro-lead-in").one("click", function(){
+                var innerContent = $(this).text()
+                $(this).after("<div class='form-group'><input type='text' class='form-control' id='' placeholder='"+innerContent+"' autofocus></div>")
+
+                $('input').on('inputchange', function() {
+                    $('.intro-lead-in').text(this.value);
                 });
             })
+
+
+            // $(".intro-lead-in").one("click", function(){
+            //     $(this).after("<input placeholder='edit me'><p></p>")
+            // })
+
+            // $(".intro-lead-in").one("click", function(){
+            //     var innerContent = $(this).text()
+            //     $(this).after("<div class='live-input' class='form-group'><input type='text' class='form-control' id='' placeholder='"+innerContent+"' autofocus></div>")
+
+
+            //     $('.live-input').on('inputchange', function() {
+            //         $('.intro-lead-in').text(this.value);
+            //     });
+
+                // $( ".live-input" ).keydown(function(key) {
+                //   var keyPressed = String.fromCharCode(key.keyCode)
+                //   $(".intro-lead-in").text(keyPressed)
+                // });
+
+                // debugger;
+                // var userId  = $(this).attr("id")
+                // var newData = $(this).text()
+                // $.ajax({
+                //     url: "/themes/agency/" + userId,
+                //     type: "PUT",
+                //     data: {user_id: userId, intro_lead_in: "Welcome To Our huh?"},
+                //     success: function(result) {
+                //         console.log(result)
+                //     }
+                // });
+            // })
+
+
         })
     </script>
 
