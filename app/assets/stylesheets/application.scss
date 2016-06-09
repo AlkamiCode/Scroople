@@ -10,3 +10,9 @@
 form.form-inline {
   margin-bottom: 2%;
 }
+
+.alert.alert-success.alert-dismissible.fade.in.notice,
+.alert.alert-danger.alert-dismissible.fade.in {
+  width: 25%;
+  margin: 1%;
+}
