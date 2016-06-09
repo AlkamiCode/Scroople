@@ -40,9 +40,9 @@
     <header>
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in" data-theme-id="<%= @user.agency_theme.id %>" data-theme-column="intro_lead_in"><%= @user.agency_theme.intro_lead_in %></div>
+                <div class="intro-lead-in click-to-update" data-theme-column="intro_lead_in"><%= @user.agency_theme.intro_lead_in %></div>
 
-                <div class="intro-heading"><%= @user.agency_theme.intro_heading %></div>
+                <div class="intro-heading click-to-update" data-theme-column="intro_heading"><%= @user.agency_theme.intro_heading %></div>
                 <a href="#services" class="page-scroll btn btn-xl">Learn More</a>
             </div>
         </div>
@@ -69,8 +69,9 @@
                 }
             }
 
-            $(".intro-lead-in").on("click", function(element){
-                var innerContent = $(this).text()
+            $(".click-to-update").on("click", function(element){
+                var innerContent   = $(this).text()
+                var clickedElement = $(this)
 
                 if($(".form-inline").size() !== 0){
                     element.preventDefault()
@@ -79,7 +80,7 @@
                     $(this).after("<form class='form-inline'><div class='form-group'><input type='text' class='form-control' id='' placeholder='"+innerContent+"' autofocus></div><button type='button' data-original-content='"+innerContent+"' class='btn btn-danger'>Cancel</button><button type='button' class='btn btn-success'>Submit</button></div>")
 
                     $("input").on("inputchange", function() {
-                        $(".intro-lead-in").text(this.value)
+                        $(clickedElement).text(this.value)
                     })
 
                     $("input").on("keydown", function(key) {
@@ -90,7 +91,7 @@
                     })
 
                     $(".btn-danger").on("click", function() {
-                        $(".intro-lead-in").text($(this).data("original-content"))
+                        $(clickedElement).text($(this).data("original-content"))
                         $('.form-inline').remove()
                     })
 
