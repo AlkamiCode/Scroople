@@ -78,8 +78,15 @@
 
                     $(this).after("<form class='form-inline'><div class='form-group'><input type='text' class='form-control' id='' placeholder='"+innerContent+"' autofocus></div><button type='button' data-original-content='"+innerContent+"' class='btn btn-danger'>Cancel</button><button type='button' class='btn btn-success'>Submit</button></div>")
 
-                    $('input').on('inputchange', function() {
-                        $('.intro-lead-in').text(this.value)
+                    $("input").on("inputchange", function() {
+                        $(".intro-lead-in").text(this.value)
+                    })
+
+                    $("input").on("keydown", function(key) {
+                        if (key.keyCode === 13) {
+                            key.preventDefault()
+                            $(".btn-success").click()
+                        }
                     })
 
                     $(".btn-danger").on("click", function() {
@@ -109,10 +116,6 @@
                     })
                 }
             })
-
-
-
-
         })
     </script>
 
