@@ -11,8 +11,14 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( agency.scss )
 # Rails.application.config.assets.precompile += %w( agency.js )
 # Rails.application.config.assets.precompile += %w( home.scss )
-# Rails.application.config.assets.precompile += %w( home.js )
 
-%w( home themes/agency themes user_page ).each do |controller|
+Rails.application.config.assets.precompile += %w( devise/sessions.css )
+Rails.application.config.assets.precompile += %w( devise/sessions.js )
+Rails.application.config.assets.precompile += %w( devise/registrations.css )
+Rails.application.config.assets.precompile += %w( devise/registrations.js )
+Rails.application.config.assets.precompile += %w( devise/passwords.css )
+Rails.application.config.assets.precompile += %w( devise/passwords.js )
+
+%w( home themes/agency visitors users ).each do |controller|
   Rails.application.config.assets.precompile += ["#{controller}.js", "#{controller}.scss"]
 end

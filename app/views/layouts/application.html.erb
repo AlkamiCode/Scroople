@@ -7,30 +7,13 @@
 
   <%= csrf_meta_tags %>
 </head>
-  <div class="alert alert-success alert-dismissible fade in notice" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-    </button>
-      <%= notice %>
-  </div>
-
-  <div class="alert alert-danger alert-dismissible fade in" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-    </button>
-      <%= alert %>
-  </div>
-
-  <script>
-    $(document).ready(function () {
-      // if (!$(".alert-success").text().trim()) {
-      //   $(".alert-success").hide()
-      // } else {
-      //   $(".alert-success").show()
-      // }
-    })
-  </script>
-
-  <%= yield %>
-  <%= render 'layouts/login_modal' %>
+  <body>
+    <header>
+      <%= render 'layouts/navigation' %>
+    </header>
+    <main role="main">
+       <%= render 'layouts/messages' %>
+    </main>
+    <%= yield %>
+  </body>
 </html>
