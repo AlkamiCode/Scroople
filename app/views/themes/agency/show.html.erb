@@ -39,17 +39,6 @@
         </div>
     </nav>
 
-    <header>
-        <div class="container">
-            <div class="intro-text">
-                <div class="intro-lead-in click-to-update" data-theme-column="intro_lead_in"><%= @user.agency_theme.intro_lead_in %></div>
-
-                <div class="intro-heading click-to-update" data-theme-column="intro_heading"><%= @user.agency_theme.intro_heading %></div>
-                <a href="#services" class="page-scroll btn btn-xl">Learn More</a>
-            </div>
-        </div>
-    </header>
-
     <% if current_user && current_user.id == @user.id  %>
         <%= javascript_include_tag "themes/user_theme.js" %>
 
@@ -63,27 +52,24 @@
         </script>
     <% end %>
 
-    <%= form_for(:agency_theme, url: themes_agency_path, html: {multipart: true}, method: "put") do |f| %>
-        <%= f.file_field :brand_logo %>
-        <%= f.submit "Add Logo" %>
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in click-to-update" data-theme-column="intro_lead_in"><%= @user.agency_theme.intro_lead_in %></div>
+
+                <div class="intro-heading click-to-update" data-theme-column="intro_heading"><%= @user.agency_theme.intro_heading %></div>
+                <a href="#services" class="page-scroll btn btn-xl">Learn More</a>
+            </div>
+        </div>
+    </header>
+
+
+    <%= form_for(:agency_theme, url: themes_agency_path, html: {multipart: true, id: "image-upload"}, method: "put") do |f| %>
+        <%= f.file_field :brand_logo, id: "file" %></br>
+        <%= f.button "Upload Image", class: "btn btn-primary" %>
+        <%= f.button "Cancel", class: "btn btn-danger", type: "button" %>
     <% end %>
 
-<!--     <form enctype="multipart/form-data" action="/themes/agency/1" accept-charset="UTF-8" method="post">
-        <input type="hidden" name="_method" value="put" />
-        <label class="file" for="brand_logo">Logo</label>
-        <input type="file" name="brand_logo">
-
-        <input type="submit" name="commit" value="Add Logo">
-    </form> -->
-
-
-<!--     <form enctype="multipart/form-data" action="themes/agency/1" method="PUT">
-        <label class="file">
-          <input type="file" id="file">
-          <span class="file-custom"></span>
-        </label>
-        <button type="submit" class="btn btn-primary">Upload Logo</button>
-    </form> -->
 
     <section id="services">
         <div class="container">
