@@ -9,7 +9,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Logo</a>
+                <a class="navbar-brand page-scroll click-to-upload" href="#page-top">
+                    <%= image_tag(@user.agency_theme.brand_logo.url, class: "img-responsive") %>
+                </a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -50,7 +52,38 @@
 
     <% if current_user && current_user.id == @user.id  %>
         <%= javascript_include_tag "themes/user_theme.js" %>
+
+        <script>
+            $(document).ready(function() {
+                $(".click-to-upload").on("click", function(){
+                    debugger;
+                    $(this).after("<label class='file'><input type='file' id='file'><span class='file-custom'></span></label>")
+                })
+            })
+        </script>
     <% end %>
+
+    <%= form_for(:agency_theme, url: themes_agency_path, html: {multipart: true}, method: "put") do |f| %>
+        <%= f.file_field :brand_logo %>
+        <%= f.submit "Add Logo" %>
+    <% end %>
+
+<!--     <form enctype="multipart/form-data" action="/themes/agency/1" accept-charset="UTF-8" method="post">
+        <input type="hidden" name="_method" value="put" />
+        <label class="file" for="brand_logo">Logo</label>
+        <input type="file" name="brand_logo">
+
+        <input type="submit" name="commit" value="Add Logo">
+    </form> -->
+
+
+<!--     <form enctype="multipart/form-data" action="themes/agency/1" method="PUT">
+        <label class="file">
+          <input type="file" id="file">
+          <span class="file-custom"></span>
+        </label>
+        <button type="submit" class="btn btn-primary">Upload Logo</button>
+    </form> -->
 
     <section id="services">
         <div class="container">

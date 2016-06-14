@@ -10,7 +10,7 @@ gem "font-awesome-sass", "~> 4.6.2"
 gem "jquery-easing-rails"
 gem "devise"
 gem "paperclip"
-gem "aws-sdk", "~> 2.3"
+gem 'aws-sdk'
 gem "figaro"
 gem "responders"
 

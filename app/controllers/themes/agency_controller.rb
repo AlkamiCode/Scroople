@@ -14,10 +14,16 @@ class Themes::AgencyController < ApplicationController
   end
 
   def update
-    agency_theme        = AgencyTheme.find(params[:theme_id])
-    agency_theme_column = params[:theme_column]
-    agency_theme.update(agency_theme_column => params[:new_column_value])
+    agency_theme = AgencyTheme.find(1)
+    # binding.pry
+    agency_theme.update(brand_logo: params[:agency_theme][:brand_logo])
 
-    respond_with "something"
+
+    redirect_to :back
+    # agency_theme        = AgencyTheme.find(params[:theme_id])
+    # agency_theme_column = params[:theme_column]
+    # agency_theme.update(agency_theme_column => params[:new_column_value])
+
+    # respond_with "something"
   end
 end
