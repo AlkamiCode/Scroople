@@ -10,7 +10,7 @@ class Themes::AgencyController < ApplicationController
 
   def create
     Agency.create(agency_params)
-    redirect_to controller: 'agency', action: 'show', id: params[:agency][:id]
+    redirect_to controller: 'agency', action: 'show', id: params[:agency][:user_id]
   end
 
   def update
