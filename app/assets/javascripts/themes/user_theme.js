@@ -56,8 +56,9 @@ $(document).ready(function(){
                         url: "/themes/agency/" + themeID,
                         type: "PUT",
                         data: {agency: { [themeColumn]: newColumnValue} },
+                        dataType: "json",
                         success: function(result) {
-                            console.log(result)
+                            console.log("success!", result.results)
                             $(".form-inline").remove()
                         }
                     })

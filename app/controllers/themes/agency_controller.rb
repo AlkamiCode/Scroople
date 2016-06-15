@@ -15,9 +15,12 @@ class Themes::AgencyController < ApplicationController
 
   def update
     agency = Agency.find(params[:id])
-    agency.update(agency_params)
+    agency.update!(agency_params)
 
-    respond_with agency
+    respond_to do |format|
+      format.html { respond_with :themes, agency }
+      format.json { render json: { results: agency } }
+    end
   end
 
   private
