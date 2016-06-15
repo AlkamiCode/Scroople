@@ -55,7 +55,7 @@ $(document).ready(function(){
                     $.ajax({
                         url: "/themes/agency/" + themeID,
                         type: "PUT",
-                        data: {theme_id: themeID, theme_column: themeColumn, new_column_value: newColumnValue},
+                        data: {agency: { [themeColumn]: newColumnValue} },
                         success: function(result) {
                             console.log(result)
                             $(".form-inline").remove()

@@ -16,9 +16,8 @@ ActiveRecord::Schema.define(version: 20160613182347) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "agency_themes", force: :cascade do |t|
+  create_table "agencies", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "title"
     t.string   "brand_logo_file_name"
     t.string   "brand_logo_content_type"
     t.integer  "brand_logo_file_size"
@@ -29,7 +28,7 @@ ActiveRecord::Schema.define(version: 20160613182347) do
     t.datetime "updated_at",                                                 null: false
   end
 
-  add_index "agency_themes", ["user_id"], name: "index_agency_themes_on_user_id", using: :btree
+  add_index "agencies", ["user_id"], name: "index_agencies_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -50,5 +49,5 @@ ActiveRecord::Schema.define(version: 20160613182347) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "agency_themes", "users"
+  add_foreign_key "agencies", "users"
 end

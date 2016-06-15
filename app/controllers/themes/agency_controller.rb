@@ -9,21 +9,20 @@ class Themes::AgencyController < ApplicationController
   end
 
   def create
-    AgencyTheme.create(title: "agency", user_id: params[:id])
-    redirect_to controller: 'agency', action: 'show', id: params[:id]
+    Agency.create(agency_params)
+    redirect_to controller: 'agency', action: 'show', id: params[:agency][:id]
   end
 
   def update
-    agency_theme = AgencyTheme.find(1)
-    # binding.pry
-    agency_theme.update(brand_logo: params[:agency_theme][:brand_logo])
+    agency = Agency.find(params[:id])
+    agency.update(agency_params)
 
+    respond_with agency
+  end
 
-    redirect_to :back
-    # agency_theme        = AgencyTheme.find(params[:theme_id])
-    # agency_theme_column = params[:theme_column]
-    # agency_theme.update(agency_theme_column => params[:new_column_value])
+  private
 
-    # respond_with "something"
+  def agency_params
+    params.require(:agency).permit(:brand_logo, :intro_lead_in, :intro_heading, :user_id)
   end
 end

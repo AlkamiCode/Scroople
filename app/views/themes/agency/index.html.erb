@@ -43,7 +43,7 @@
                 <div class="intro-lead-in">Welcome To Our Studio!</div>
                 <div class="intro-heading">It's Nice To Meet You</div>
                 <% if current_user %>
-                    <%= link_to "Choose This Theme", themes_agency_index_path(id: current_user.id), method: "POST", class: "page-scroll btn btn-xl" %>
+                    <%= link_to "Choose This Theme", themes_agency_index_path(agency: {user_id: current_user.id}), method: "POST", class: "page-scroll btn btn-xl" %>
                 <% else %>
                     <a class="btn btn-xl" href="" data-toggle="modal" data-target="#loginModal"> Register Or Login To Choose Theme</a>
                 <% end %>

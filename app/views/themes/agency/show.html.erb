@@ -1,4 +1,4 @@
-<body id="page-top" class="index" data-theme-id="<%= @user.agency_theme.id %>">
+<body id="page-top" class="index" data-theme-id="<%= @user.agency.id %>">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -10,7 +10,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand page-scroll click-to-upload" href="#page-top">
-                    <%= image_tag(@user.agency_theme.brand_logo.url, class: "img-responsive") %>
+                    <%= image_tag(@user.agency.brand_logo.url, class: "img-responsive") %>
                 </a>
             </div>
 
@@ -45,7 +45,6 @@
         <script>
             $(document).ready(function() {
                 $(".click-to-upload").on("click", function(){
-                    debugger;
                     $(this).after("<label class='file'><input type='file' id='file'><span class='file-custom'></span></label>")
                 })
             })
@@ -55,20 +54,15 @@
     <header>
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in click-to-update" data-theme-column="intro_lead_in"><%= @user.agency_theme.intro_lead_in %></div>
+                <div class="intro-lead-in click-to-update" data-theme-column="intro_lead_in"><%= @user.agency.intro_lead_in %></div>
 
-                <div class="intro-heading click-to-update" data-theme-column="intro_heading"><%= @user.agency_theme.intro_heading %></div>
+                <div class="intro-heading click-to-update" data-theme-column="intro_heading"><%= @user.agency.intro_heading %></div>
                 <a href="#services" class="page-scroll btn btn-xl">Learn More</a>
             </div>
         </div>
     </header>
 
-
-    <%= form_for(:agency_theme, url: themes_agency_path, html: {multipart: true, id: "image-upload"}, method: "put") do |f| %>
-        <%= f.file_field :brand_logo, id: "file" %></br>
-        <%= f.button "Upload Image", class: "btn btn-primary" %>
-        <%= f.button "Cancel", class: "btn btn-danger", type: "button" %>
-    <% end %>
+    <form id='image-upload' enctype='multipart/form-data' action='/themes/agency/1' accept-charset='UTF-8' method='post'><input name='utf8' type='hidden' value='✓'><input type='hidden' name='_method' value='put'><input type='hidden' name='authenticity_token' value='g2i18zLyycMN3T5WTVJLZzcYOqFHbMsPrzkj3evOUWObohATRAxsfREBy/wfDwokeqhy3Z8zcJxqJOV91+M0EQ=='><input id='file' type='file' name='agency[brand_logo]'><br><button name='button' type='submit' class='btn btn-primary'>Upload Image</button><button name='button' type='button' class='btn btn-danger'>Cancel</button></form>
 
 
     <section id="services">
