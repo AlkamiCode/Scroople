@@ -22,10 +22,14 @@ ActiveRecord::Schema.define(version: 20160613182347) do
     t.string   "brand_logo_content_type"
     t.integer  "brand_logo_file_size"
     t.datetime "brand_logo_updated_at"
-    t.string   "intro_lead_in",           default: "Welcome To Our Studio!"
-    t.string   "intro_heading",           default: "It's Nice To Meet You"
-    t.datetime "created_at",                                                 null: false
-    t.datetime "updated_at",                                                 null: false
+    t.string   "header_image_file_name"
+    t.string   "header_image_content_type"
+    t.integer  "header_image_file_size"
+    t.datetime "header_image_updated_at"
+    t.string   "intro_lead_in",             default: "Welcome To Our Studio!"
+    t.string   "intro_heading",             default: "It's Nice To Meet You"
+    t.datetime "created_at",                                                   null: false
+    t.datetime "updated_at",                                                   null: false
   end
 
   add_index "agencies", ["user_id"], name: "index_agencies_on_user_id", using: :btree
