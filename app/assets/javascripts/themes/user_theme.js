@@ -25,8 +25,7 @@ $(document).ready(function(){
         if($(".form-inline").size() !== 0){
             element.preventDefault()
         } else {
-
-            $(this).after("<form class='form-inline'><div class='form-group'><input type='text' class='form-control' id='' placeholder='"+innerContent+"' autofocus></div><button type='button' data-original-content='"+innerContent+"' class='btn btn-danger'>Cancel</button><button type='button' class='btn btn-success'>Submit</button></div>")
+            $(this).after('<form class="form-inline"><div class="form-group"><input type="text" class="form-control" placeholder="'+innerContent+'" autofocus></div><button type="button" data-original-content="'+innerContent+'" class="btn btn-danger">Cancel</button><button type="button" class="btn btn-success">Submit</button></div>')
 
             $("input").on("inputchange", function() {
                 $(clickedElement).text(this.value)
@@ -40,7 +39,7 @@ $(document).ready(function(){
             })
 
             $(".btn-danger").on("click", function() {
-                $(clickedElement).text($(this).data("original-content"))
+                $(clickedElement).text($(this).data('original-content'))
                 $('.form-inline').remove()
             })
 
