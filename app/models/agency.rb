@@ -7,7 +7,7 @@ class Agency < ActiveRecord::Base
     # medium: '300x300>'
   }
 
-  has_attached_file :header_image, styles: {
+  has_attached_file :header_image, default_url: "https://s3-us-west-2.amazonaws.com/scroopledev/agencies/header-bg.jpg", styles: {
     # thumb: '100x100>',
     # square: '200x200#',
     # medium: '300x300>'

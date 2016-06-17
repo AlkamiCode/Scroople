@@ -19,7 +19,7 @@ $(document).ready(function(){
     }
 
     $(".click-to-update").on("click", function(element){
-        event.stopPropagation();
+        event.stopPropagation()
         var innerContent   = $(this).text()
         var clickedElement = $(this)
 
@@ -31,7 +31,7 @@ $(document).ready(function(){
             $(this).after('<form class="form-inline"><div class="form-group"><input type="text" class="form-control" placeholder="'+innerContent+'" autofocus></div><button type="button" data-original-content="'+innerContent+'" class="btn btn-danger">Cancel</button><button type="button" class="btn btn-success">Submit</button></div>')
 
             $("input").on("inputchange", function(element) {
-                event.stopPropagation()
+                // event.stopPropagation()
                 $(clickedElement).text(this.value)
             })
 
