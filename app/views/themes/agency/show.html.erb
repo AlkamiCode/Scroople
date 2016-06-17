@@ -10,7 +10,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand page-scroll click-to-upload" data-theme-column="brand_logo" href="#page-top">
-                    <%= image_tag(@user.agency.brand_logo.url, class: "img-responsive") %>
+                    <%= image_tag(@user.agency.brand_logo.url, class: "img-responsive brand-logo") %>
                 </a>
             </div>
 
@@ -42,6 +42,9 @@
     <header class="click-to-upload" data-theme-column="header_image" data-header-image-url="<%= @user.agency.header_image.url %>">
         <div class="container">
             <div class="intro-text">
+                <a>
+                    <i id="edit-background-image" class="fa fa-2x fa-pencil-square-o" aria-hidden="true"></i>
+                </a>
                 <div class="intro-lead-in click-to-update" data-theme-column="intro_lead_in"><%= @user.agency.intro_lead_in %></div>
 
                 <div class="intro-heading click-to-update" data-theme-column="intro_heading"><%= @user.agency.intro_heading %></div>
@@ -55,24 +58,6 @@
 
         <script>
             $(document).ready(function() {
-                var headerImageURL = $("header").data("header-image-url")
-                $("header").css("background-image", "url("+headerImageURL+")")
-
-                $(".click-to-upload").on("click", function(){
-                    var targetColumn = $(this).data("theme-column")
-
-                    $(this).after("<form id='image-upload' enctype='multipart/form-data' action='/themes/agency/1' accept-charset='UTF-8' method='post'><input name='utf8' type='hidden' value='✓'><input type='hidden' name='_method' value='put'><input type='hidden' name='authenticity_token' value='g2i18zLyycMN3T5WTVJLZzcYOqFHbMsPrzkj3evOUWObohATRAxsfREBy/wfDwokeqhy3Z8zcJxqJOV91+M0EQ=='><input id='file' type='file' name='agency["+targetColumn+"]'><br><input type='submit' value='submit' disabled class='btn btn-primary'><button name='button' type='button' class='btn btn-danger'>Cancel</button></form>")
-
-                    $(".btn-danger").on("click", function() {
-                        $('#image-upload').remove()
-                    })
-
-                    $('input:file').change(function() {
-                        if ($(this).val()) {
-                            $('input:submit').attr('disabled',false);
-                        }
-                    });
-                })
             })
         </script>
     <% end %>
@@ -276,13 +261,6 @@
                                 <div class="timeline-body">
                                     <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
                                 </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                                <h4>Be Part
-                                    <br>Of Our
-                                    <br>Story!</h4>
                             </div>
                         </li>
                     </ul>
