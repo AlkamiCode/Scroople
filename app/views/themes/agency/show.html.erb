@@ -9,8 +9,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll click-to-upload" data-theme-column="brand_logo" href="#page-top">
-                    <%= image_tag(@user.agency.brand_logo.url, class: "img-responsive brand-logo") %>
+                <a class="navbar-brand page-scroll click-to-upload" href="#page-top">
+                    <img src="<%= @user.agency.brand_logo.url %>" class="img-responsive brand-logo" data-theme-column="brand_logo" data-toggle="modal" data-target="#myModal">
                 </a>
             </div>
 
@@ -39,11 +39,11 @@
         </div>
     </nav>
 
-    <header class="click-to-upload" data-theme-column="header_image" data-header-image-url="<%= @user.agency.header_image.url %>">
+    <header data-header-image-url="<%= @user.agency.header_image.url %>">
         <div class="container">
             <div class="intro-text">
                 <a>
-                    <i id="edit-background-image" class="fa fa-2x fa-pencil-square-o" aria-hidden="true"></i>
+                    <i data-theme-column="header_image" data-toggle="modal" data-target="#myModal" id="edit-background-image" class="fa fa-2x fa-pencil-square-o" aria-hidden="true"></i>
                 </a>
                 <div class="intro-lead-in click-to-update" data-theme-column="intro_lead_in"><%= @user.agency.intro_lead_in %></div>
 

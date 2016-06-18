@@ -1,7 +1,7 @@
 class Agency < ActiveRecord::Base
   belongs_to :user
 
-  has_attached_file :brand_logo, default_url: "themes/agency/logos/agency_logo.png", styles: {
+  has_attached_file :brand_logo, default_url: "https://s3-us-west-2.amazonaws.com/scroopledev/agencies/agency_logo.png", styles: {
     # thumb: '100x100>',
     # square: '200x200#',
     # medium: '300x300>'

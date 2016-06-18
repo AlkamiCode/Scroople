@@ -18,7 +18,24 @@ var editTextElement = function (themeID, themeColumn, newColumnValue) {
     }
 }
 
+var editImageElement = function(targetColumn) {
+    console.log(targetColumn)
+    $("body").append("<div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'><div class='modal-dialog' role='document'><div class='modal-content'><div class='modal-body'><form id='image-upload' enctype='multipart/form-data' action='/themes/agency/1' accept-charset='UTF-8' method='post'><input name='utf8' type='hidden' value='✓'><input type='hidden' name='_method' value='put'><input type='hidden' name='authenticity_token' value='g2i18zLyycMN3T5WTVJLZzcYOqFHbMsPrzkj3evOUWObohATRAxsfREBy/wfDwokeqhy3Z8zcJxqJOV91+M0EQ=='><input id='file' type='file' name='agency["+targetColumn+"]'><br><input type='submit' value='submit' disabled class='btn btn-primary'><button data-toggle='modal' data-target='#myModal' name='button' type='button' class='btn btn-danger'>Cancel</button></form></div></div></div></div>")
+
+
+    $('input:file').change(function() {
+        if ($(this).val()) {
+            $('input:submit').attr('disabled',false);
+        }
+    });
+}
+
 $(document).ready(function(){
+    // display users header image
+    var headerImageURL = $("header").data("header-image-url")
+    $("header").css("background-image", "url("+headerImageURL+")")
+
+    // custom real time type and see text characters
     $.event.special.inputchange = {
         setup: function() {
             var self = this, val
@@ -38,6 +55,7 @@ $(document).ready(function(){
         }
     }
 
+    // element editing
     $("body").on("click", function() {
         var textElements   = ["H1", "H2", "H3", "H4", "H5", "H6", "DIV", "P"]
         var eventTargetTag = event.target.tagName
@@ -75,10 +93,6 @@ $(document).ready(function(){
                     $('.form-inline').remove()
                 })
 
-                // $("input.form-control").on("click", function() {
-                //     console.log("clicked inside input field")
-                //     event.stopPropagation()
-                // })
 
                 $(".btn-success").on("click", function() {
                     console.log(".btn-success submit")
@@ -92,6 +106,10 @@ $(document).ready(function(){
 
             // console.log(eventTargetTag, event.target.textContent, "text element!")
         } else if (eventTargetTag === "IMG" || event.target.id === "edit-background-image") {
+            var targetColumn = event.target.dataset["themeColumn"]
+            console.log(targetColumn)
+
+            editImageElement(targetColumn)
 
             // console.log(eventTargetTag, event.target, "image or backgournd-image icon")
         } else if (event.target.tagName === "I") {
@@ -101,27 +119,4 @@ $(document).ready(function(){
     })
 
 
-    // // Uploading Images
-    // var headerImageURL = $("header").data("header-image-url")
-    // $("header").css("background-image", "url("+headerImageURL+")")
-
-
-    // $(".click-to-upload").on("click", function(){
-    //     console.log("click-to-upload image")
-    //     var targetColumn = $(this).data("theme-column")
-
-    //     $(this).after("<form id='image-upload' enctype='multipart/form-data' action='/themes/agency/1' accept-charset='UTF-8' method='post'><input name='utf8' type='hidden' value='✓'><input type='hidden' name='_method' value='put'><input type='hidden' name='authenticity_token' value='g2i18zLyycMN3T5WTVJLZzcYOqFHbMsPrzkj3evOUWObohATRAxsfREBy/wfDwokeqhy3Z8zcJxqJOV91+M0EQ=='><input id='file' type='file' name='agency["+targetColumn+"]'><br><input type='submit' value='submit' disabled class='btn btn-primary'><button name='button' type='button' class='btn btn-danger'>Cancel</button></form>")
-
-    //     $(".btn-danger").on("click", function() {
-    //         console.log(".btn-danger for image-upload")
-    //         $('#image-upload').remove()
-    //     })
-
-    //     $('input:file').change(function() {
-    //         console.log("make sure user chooses file")
-    //         if ($(this).val()) {
-    //             $('input:submit').attr('disabled',false);
-    //         }
-    //     });
-    // })
 })
