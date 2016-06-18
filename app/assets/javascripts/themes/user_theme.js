@@ -1,7 +1,7 @@
 var editTextElement = function (themeID, themeColumn, newColumnValue) {
     if (newColumnValue === ""){
         console.log("empty input value")
-      return;
+        event.preventDefault()
     } else {
         console.log("begin ajax call")
         $.ajax({
@@ -10,7 +10,6 @@ var editTextElement = function (themeID, themeColumn, newColumnValue) {
             data: {agency: { [themeColumn]: newColumnValue} },
             dataType: "json",
             success: function(result) {
-                event.stopPropagation()
                 console.log("success!", result.results)
                 $(".form-inline").remove()
             }
@@ -19,7 +18,6 @@ var editTextElement = function (themeID, themeColumn, newColumnValue) {
 }
 
 var editImageElement = function(targetColumn) {
-    console.log(targetColumn)
     $("body").append("<div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'><div class='modal-dialog' role='document'><div class='modal-content'><div class='modal-body'><form id='image-upload' enctype='multipart/form-data' action='/themes/agency/1' accept-charset='UTF-8' method='post'><input name='utf8' type='hidden' value='✓'><input type='hidden' name='_method' value='put'><input type='hidden' name='authenticity_token' value='g2i18zLyycMN3T5WTVJLZzcYOqFHbMsPrzkj3evOUWObohATRAxsfREBy/wfDwokeqhy3Z8zcJxqJOV91+M0EQ=='><input id='file' type='file' name='agency["+targetColumn+"]'><br><input type='submit' value='submit' disabled class='btn btn-primary'><button data-toggle='modal' data-target='#myModal' name='button' type='button' class='btn btn-danger'>Cancel</button></form></div></div></div></div>")
 
 
@@ -30,12 +28,7 @@ var editImageElement = function(targetColumn) {
     });
 }
 
-$(document).ready(function(){
-    // display users header image
-    var headerImageURL = $("header").data("header-image-url")
-    $("header").css("background-image", "url("+headerImageURL+")")
-
-    // custom real time type and see text characters
+var realTimeInputUpdate = function () {
     $.event.special.inputchange = {
         setup: function() {
             var self = this, val
@@ -54,6 +47,49 @@ $(document).ready(function(){
             $.data(this, 'cache', this.value)
         }
     }
+}
+
+var addTextEditForm = function (clickedElement, innerContent) {
+    $(clickedElement).after('<form class="form-inline"><div class="form-group"><input type="text" class="form-control" id="master-input" placeholder="'+innerContent+'" autofocus></div><button type="button" data-original-content="'+innerContent+'" class="btn btn-danger">Cancel</button><button type="button" class="btn btn-success">Submit</button></div>')
+
+    $("input").on("inputchange", function(element) {
+        $(clickedElement).text(this.value)
+    })
+
+    $("input").on("keydown", function(key) {
+        if (key.keyCode === 13) {
+            event.preventDefault()
+            var themeID        = $("body").data("theme-id")
+            var themeColumn    = $(this).parent().parent().prev().data("theme-column")
+            var newColumnValue = $(this).val()
+
+            editTextElement(themeID, themeColumn, newColumnValue)
+        }
+    })
+
+    $(".btn-danger").on("click", function() {
+        console.log(".btn-danger delete")
+        $(clickedElement).text($(this).data('original-content'))
+        $('.form-inline').remove()
+    })
+
+    $(".btn-success").on("click", function() {
+        console.log(".btn-success submit")
+        var themeID        = $("body").data("theme-id")
+        var themeColumn    = $(this).parent().prev().data("theme-column")
+        var newColumnValue = $(this).siblings().find("input").val()
+
+        editTextElement(themeID, themeColumn, newColumnValue)
+    })
+}
+
+$(document).ready(function(){
+    // display users header image
+    var headerImageURL = $("header").data("header-image-url")
+    $("header").css("background-image", "url("+headerImageURL+")")
+
+    // custom real time type and see text characters
+    realTimeInputUpdate()
 
     // element editing
     $("body").on("click", function() {
@@ -71,44 +107,12 @@ $(document).ready(function(){
                 event.preventDefault()
             } else {
                 console.log("begin adding input field")
-                $(clickedElement).after('<form class="form-inline"><div class="form-group"><input type="text" class="form-control" id="master-input" placeholder="'+innerContent+'" autofocus></div><button type="button" data-original-content="'+innerContent+'" class="btn btn-danger">Cancel</button><button type="button" class="btn btn-success">Submit</button></div>')
-
-                $("input").on("inputchange", function(element) {
-                    $(clickedElement).text(this.value)
-                })
-
-                $("input").on("keydown", function(key) {
-                    if (key.keyCode === 13) {
-                        var themeID        = $("body").data("theme-id")
-                        var themeColumn    = $(this).parent().parent().prev().data("theme-column")
-                        var newColumnValue = $(this).val()
-
-                        editTextElement(themeID, themeColumn, newColumnValue)
-                    }
-                })
-
-                $(".btn-danger").on("click", function() {
-                    console.log(".btn-danger delete")
-                    $(clickedElement).text($(this).data('original-content'))
-                    $('.form-inline').remove()
-                })
-
-
-                $(".btn-success").on("click", function() {
-                    console.log(".btn-success submit")
-                    var themeID        = $("body").data("theme-id")
-                    var themeColumn    = $(this).parent().prev().data("theme-column")
-                    var newColumnValue = $(this).siblings().find("input").val()
-
-                    editTextElement(themeID, themeColumn, newColumnValue)
-                })
+                addTextEditForm(clickedElement, innerContent)
             }
 
             // console.log(eventTargetTag, event.target.textContent, "text element!")
         } else if (eventTargetTag === "IMG" || event.target.id === "edit-background-image") {
             var targetColumn = event.target.dataset["themeColumn"]
-            console.log(targetColumn)
-
             editImageElement(targetColumn)
 
             // console.log(eventTargetTag, event.target, "image or backgournd-image icon")
@@ -117,6 +121,5 @@ $(document).ready(function(){
             // console.log(eventTargetTag, event.target, "font-icon")
         }
     })
-
 
 })

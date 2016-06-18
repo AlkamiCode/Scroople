@@ -55,11 +55,6 @@
 
     <% if current_user && current_user.id == @user.id  %>
         <%= javascript_include_tag "themes/user_theme.js" %>
-
-        <script>
-            $(document).ready(function() {
-            })
-        </script>
     <% end %>
 
     <section id="services">
