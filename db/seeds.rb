@@ -1,4 +1,4 @@
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+user = User.create(username: "dmitry", email: "dmitry@alkami.io", password: "alkami21")
+Agency.create(user_id: user.id)
+
+puts "#{user.username} successfully created along with Agency Theme"

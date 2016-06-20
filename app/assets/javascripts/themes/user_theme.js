@@ -123,14 +123,13 @@ $(document).ready(function(){
 
                 $("#" + targetIcon).modal("show")
             } else {
-                var newIconClass = event.target.className
+                var themeID             = $("body").data("theme-id")
+                var newIconClass        = event.target.className
                 targetElement.className = newIconClass + " fa-stack-1x fa-inverse"
+
+                editTextElement(themeID, targetIcon, newIconClass)
                 $("#" + targetIcon).modal("hide")
             }
-
-
-
-
             // console.log(eventTargetTag, event.target, event.target.textContent, event.target.parentElement.textContent)
         }
     })

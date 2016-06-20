@@ -6,7 +6,9 @@ class CreateAgencies < ActiveRecord::Migration
       t.attachment :header_image
       t.string     :intro_lead_in,  default: "Welcome To Our Studio!"
       t.string     :intro_heading,  default: "It's Nice To Meet You"
-      t.string     :services_icon_1, default: "fa-shopping-cart"
+      t.string     :services_icon_1, default: "fa fa-shopping-cart"
+      t.string     :services_icon_2, default: "fa fa-laptop"
+      t.string     :services_icon_3, default: "fa fa-lock"
 
       t.timestamps null: false
     end
