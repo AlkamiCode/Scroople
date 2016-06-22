@@ -26,6 +26,49 @@ class Themes::AgencyController < ApplicationController
   private
 
   def agency_params
-    params.require(:agency).permit(:brand_logo, :header_image, :intro_lead_in, :intro_heading, :user_id, :services_subheading, :services_icon_1, :services_icon_1_heading, :services_icon_1_subheading, :services_icon_2, :services_icon_2_heading, :services_icon_2_subheading, :services_icon_3, :services_icon_3_heading, :services_icon_3_subheading, :portfolio_subheading, :portfolio_project_1_image, :portfolio_project_1_name, :portfolio_project_1_category, :portfolio_project_1_description, :portfolio_project_1_date, :portfolio_project_1_client)
+    params.require(:agency).permit(
+      :user_id,
+
+      :brand_logo,
+      :header_image,
+      :intro_lead_in,
+      :intro_heading,
+
+      :services_subheading,
+      :services_icon_1,
+      :services_icon_1_heading,
+      :services_icon_1_subheading,
+
+      :services_icon_2,
+      :services_icon_2_heading,
+      :services_icon_2_subheading,
+
+      :services_icon_3,
+      :services_icon_3_heading,
+      :services_icon_3_subheading,
+
+      :portfolio_subheading,
+
+      :portfolio_project_1_image,
+      :portfolio_project_1_name,
+      :portfolio_project_1_category,
+      :portfolio_project_1_description,
+      :portfolio_project_1_date,
+      :portfolio_project_1_client,
+
+      :portfolio_project_2_image,
+      :portfolio_project_2_name,
+      :portfolio_project_2_category,
+      :portfolio_project_2_description,
+      :portfolio_project_2_date,
+      :portfolio_project_2_client,
+
+      :portfolio_project_3_image,
+      :portfolio_project_3_name,
+      :portfolio_project_3_category,
+      :portfolio_project_3_description,
+      :portfolio_project_3_date,
+      :portfolio_project_3_client
+    )
   end
 end

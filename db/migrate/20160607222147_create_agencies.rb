@@ -26,8 +26,22 @@ class CreateAgencies < ActiveRecord::Migration
       t.string     :portfolio_project_1_name,        default: "Round Icons"
       t.string     :portfolio_project_1_category,    default: "Graphic Design"
       t.text       :portfolio_project_1_description, default: "Use this area to describe your project"
-      t.string     :portfolio_project_1_date,        default: "July 2014"
+      t.string     :portfolio_project_1_date,        default: "July 2016"
       t.string     :portfolio_project_1_client,      default: "Alkami"
+
+      t.attachment :portfolio_project_2_image
+      t.string     :portfolio_project_2_name,        default: "StartUp Frame-Work"
+      t.string     :portfolio_project_2_category,    default: "Web Development"
+      t.text       :portfolio_project_2_description, default: "Use this area to describe your project"
+      t.string     :portfolio_project_2_date,        default: "September 2015"
+      t.string     :portfolio_project_2_client,      default: "Alkami"
+
+      t.attachment :portfolio_project_3_image
+      t.string     :portfolio_project_3_name,        default: "TreeHouse"
+      t.string     :portfolio_project_3_category,    default: "Cloud Platform"
+      t.text       :portfolio_project_3_description, default: "Use this area to describe your project"
+      t.string     :portfolio_project_3_date,        default: "December 2015"
+      t.string     :portfolio_project_3_client,      default: "Alkami"
 
       t.timestamps null: false
     end

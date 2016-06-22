@@ -124,11 +124,11 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <%= image_tag "themes/agency/portfolio/startup-framework.png", class: "img-responsive" %>
+                        <img src="<%= @user.agency.portfolio_project_2_image.url %>" class="img-responsive">
                     </a>
                     <div class="portfolio-caption">
-                        <h4>Startup Framework</h4>
-                        <p class="text-muted">Website Design</p>
+                        <h4 data-theme-column="portfolio_project_2_name"><%= @user.agency.portfolio_project_2_name %></h4>
+                        <p class="text-muted" data-theme-column="portfolio_project_2_category"><%= @user.agency.portfolio_project_2_category %></p>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 portfolio-item">
@@ -138,11 +138,11 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <%= image_tag "themes/agency/portfolio/treehouse.png", class: "img-responsive" %>
+                        <img src="<%= @user.agency.portfolio_project_3_image.url %>" class="img-responsive">
                     </a>
                     <div class="portfolio-caption">
-                        <h4>Treehouse</h4>
-                        <p class="text-muted">Website Design</p>
+                        <h4 data-theme-column="portfolio_project_3_name"><%= @user.agency.portfolio_project_3_name %></h4>
+                        <p class="text-muted" data-theme-column="portfolio_project_3_category"><%= @user.agency.portfolio_project_3_category %></p>
                     </div>
                 </div>
             </div>
@@ -430,11 +430,16 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <h2>Project Heading</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <%= image_tag "themes/agency/portfolio/startup-framework-preview.png", class: "img-responsive img-centered" %>
-                            <p><a href="http://designmodo.com/startup/?u=787">Startup Framework</a> is a website builder for professionals. Startup Framework contains components and complex blocks (PSD+HTML Bootstrap themes and templates) which can easily be integrated into almost any design. All of these components are made in the same style, and can easily be integrated into projects, allowing you to create hundreds of solutions for your future projects.</p>
-                            <p>You can preview Startup Framework <a href="http://designmodo.com/startup/?u=787">here</a>.</p>
+                            <h2 data-theme-column="portfolio_project_2_name"><%= @user.agency.portfolio_project_2_name %></h2>
+                            <p class="item-intro text-muted" data-theme-colomn="portfolio_project_2_category"><%= @user.agency.portfolio_project_2_category %></p>
+                            <img src="<%= @user.agency.portfolio_project_2_image.url %>" class="img-responsive" data-theme-column="portfolio_project_2_image">
+
+                            <p data-theme-column="portfolio_project_2_description"><%= @user.agency.portfolio_project_2_description %></p>
+                            <ul class="list-inline">
+                                <li>Date <p data-theme-column="portfolio_project_2_date"><%= @user.agency.portfolio_project_2_date %></p></li>
+                                <li>Client <p data-theme-column="portfolio_project_2_client"><%= @user.agency.portfolio_project_2_client %></p></li>
+                                <li>Category <p data-theme-column="portfolio_project_2_category"><%= @user.agency.portfolio_project_2_category %></p></li>
+                            </ul>
                             <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
                         </div>
                     </div>
@@ -457,11 +462,16 @@
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
                             <!-- Project Details Go Here -->
-                            <h2>Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <%= image_tag "themes/agency/portfolio/treehouse-preview.png", class: "img-responsive img-centered" %>
-                            <p>Treehouse is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. This is bright and spacious design perfect for people or startup companies looking to showcase their apps or other projects.</p>
-                            <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/treehouse-free-psd-web-template/">FreebiesXpress.com</a>.</p>
+                            <h2 data-theme-column="portfolio_project_3_name"><%= @user.agency.portfolio_project_3_name %></h2>
+                            <p class="item-intro text-muted" data-theme-colomn="portfolio_project_3_category"><%= @user.agency.portfolio_project_3_category %></p>
+                            <img src="<%= @user.agency.portfolio_project_3_image.url %>" class="img-responsive" data-theme-column="portfolio_project_3_image">
+
+                            <p data-theme-column="portfolio_project_3_description"><%= @user.agency.portfolio_project_3_description %></p>
+                            <ul class="list-inline">
+                                <li>Date <p data-theme-column="portfolio_project_3_date"><%= @user.agency.portfolio_project_3_date %></p></li>
+                                <li>Client <p data-theme-column="portfolio_project_3_client"><%= @user.agency.portfolio_project_3_client %></p></li>
+                                <li>Category <p data-theme-column="portfolio_project_3_category"><%= @user.agency.portfolio_project_1_category %></p></li>
+                            </ul>
                             <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
                         </div>
                     </div>
