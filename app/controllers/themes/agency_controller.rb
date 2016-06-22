@@ -26,6 +26,6 @@ class Themes::AgencyController < ApplicationController
   private
 
   def agency_params
-    params.require(:agency).permit(:brand_logo, :header_image, :intro_lead_in, :intro_heading, :user_id, :services_icon_1, :services_icon_2, :services_icon_3)
+    params.require(:agency).permit(:brand_logo, :header_image, :intro_lead_in, :intro_heading, :user_id, :services_subheading, :services_icon_1, :services_icon_1_heading, :services_icon_1_subheading, :services_icon_2, :services_icon_2_heading, :services_icon_2_subheading, :services_icon_3, :services_icon_3_heading, :services_icon_3_subheading, :portfolio_subheading)
   end
 end

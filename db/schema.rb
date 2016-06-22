@@ -26,13 +26,21 @@ ActiveRecord::Schema.define(version: 20160613182347) do
     t.string   "header_image_content_type"
     t.integer  "header_image_file_size"
     t.datetime "header_image_updated_at"
-    t.string   "intro_lead_in",             default: "Welcome To Our Studio!"
-    t.string   "intro_heading",             default: "It's Nice To Meet You"
-    t.string   "services_icon_1",           default: "fa fa-shopping-cart"
-    t.string   "services_icon_2",           default: "fa fa-laptop"
-    t.string   "services_icon_3",           default: "fa fa-lock"
-    t.datetime "created_at",                                                   null: false
-    t.datetime "updated_at",                                                   null: false
+    t.string   "intro_lead_in",              default: "Welcome To Our Studio!"
+    t.string   "intro_heading",              default: "It's Nice To Meet You"
+    t.string   "services_subheading",        default: "Check out our awesome services"
+    t.string   "services_icon_1",            default: "fa fa-shopping-cart"
+    t.string   "services_icon_1_heading",    default: "E-Commerce"
+    t.text     "services_icon_1_subheading", default: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
+    t.string   "services_icon_2",            default: "fa fa-laptop"
+    t.string   "services_icon_2_heading",    default: "Responsive Design"
+    t.text     "services_icon_2_subheading", default: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
+    t.string   "services_icon_3",            default: "fa fa-lock"
+    t.string   "services_icon_3_heading",    default: "Web Security"
+    t.text     "services_icon_3_subheading", default: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
+    t.string   "portfolio_subheading",       default: "Check out our projects"
+    t.datetime "created_at",                                                                                                                                                                  null: false
+    t.datetime "updated_at",                                                                                                                                                                  null: false
   end
 
   add_index "agencies", ["user_id"], name: "index_agencies_on_user_id", using: :btree
