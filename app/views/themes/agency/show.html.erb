@@ -10,7 +10,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">
-                    <img src="<%= @user.agency.brand_logo.url %>" class="img-responsive brand-logo" data-theme-column="brand_logo" data-toggle="modal" data-target="#myModal">
+                    <img src="<%= @user.agency.brand_logo.url %>" class="img-responsive brand-logo" data-theme-column="brand_logo">
                 </a>
             </div>
 
@@ -110,11 +110,11 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <%= image_tag "themes/agency/portfolio/roundicons.png", class: "img-responsive" %>
+                        <img src="<%= @user.agency.portfolio_project_1_image.url %>" class="img-responsive">
                     </a>
                     <div class="portfolio-caption">
-                        <h4>Round Icons</h4>
-                        <p class="text-muted">Graphic Design</p>
+                        <h4 data-theme-column="portfolio_project_1_name"><%= @user.agency.portfolio_project_1_name %></h4>
+                        <p class="text-muted" data-theme-column="portfolio_project_1_category"><%= @user.agency.portfolio_project_1_category %></p>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 portfolio-item">
@@ -399,16 +399,15 @@
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
                             <!-- Project Details Go Here -->
-                            <h2>Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <%= image_tag "themes/agency/portfolio/roundicons-free.png", class: "img-responsive img-centered" %>
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                            <p>
-                                <strong>Want these icons in this portfolio item sample?</strong>You can download 60 of them for free, courtesy of <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">RoundIcons.com</a>, or you can purchase the 1500 icon set <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.</p>
+                            <h2 data-theme-column="portfolio_project_1_name"><%= @user.agency.portfolio_project_1_name %></h2>
+                            <p class="item-intro text-muted" data-theme-colomn="portfolio_project_1_category"><%= @user.agency.portfolio_project_1_category %></p>
+                            <img src="<%= @user.agency.portfolio_project_1_image.url %>" class="img-responsive" data-theme-column="portfolio_project_1_image">
+
+                            <p data-theme-column="portfolio_project_1_description"><%= @user.agency.portfolio_project_1_description %></p>
                             <ul class="list-inline">
-                                <li>Date: July 2014</li>
-                                <li>Client: Round Icons</li>
-                                <li>Category: Graphic Design</li>
+                                <li>Date <p data-theme-column="portfolio_project_1_date"><%= @user.agency.portfolio_project_1_date %></p></li>
+                                <li>Client <p data-theme-column="portfolio_project_1_client"><%= @user.agency.portfolio_project_1_client %></p></li>
+                                <li>Category <p data-theme-column="portfolio_project_1_category"><%= @user.agency.portfolio_project_1_category %></p></li>
                             </ul>
                             <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
                         </div>
