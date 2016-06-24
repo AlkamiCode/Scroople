@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160613182347) do
+ActiveRecord::Schema.define(version: 20160623185004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,16 @@ ActiveRecord::Schema.define(version: 20160613182347) do
 
   add_index "agencies", ["user_id"], name: "index_agencies_on_user_id", using: :btree
 
+  create_table "social_icons", force: :cascade do |t|
+    t.string   "title"
+    t.string   "url"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "social_icons", ["user_id"], name: "index_social_icons_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -92,4 +102,5 @@ ActiveRecord::Schema.define(version: 20160613182347) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "agencies", "users"
+  add_foreign_key "social_icons", "users"
 end

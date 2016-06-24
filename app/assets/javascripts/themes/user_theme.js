@@ -89,6 +89,7 @@ var addTextEditForm = function (clickedElement, innerContent) {
 }
 
 $(document).ready(function(){
+
     // display users header image
     var headerImageURL = $("header").data("header-image-url")
     $("header").css("background-image", "url("+headerImageURL+")")
@@ -120,6 +121,10 @@ $(document).ready(function(){
             editImageElement(targetColumn)
 
         } else if (event.target.tagName === "I") {
+            if (event.target.classList.contains("social-icon")) {
+
+            }
+
             if (event.target.dataset["themeColumn"]) {
                 targetIcon    = event.target.dataset["themeColumn"]
                 targetElement = event.target

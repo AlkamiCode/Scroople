@@ -8,5 +8,6 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true, presence: true,
   format: { with: VALID_EMAIL_REGEX }
 
-  has_one :agency
+  has_one  :agency
+  has_many :social_icons
 end
