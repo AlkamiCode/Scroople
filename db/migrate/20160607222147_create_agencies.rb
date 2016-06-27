@@ -43,6 +43,25 @@ class CreateAgencies < ActiveRecord::Migration
       t.string     :portfolio_project_3_date,        default: "December 2015"
       t.string     :portfolio_project_3_client,      default: "Alkami"
 
+      t.string     :about_subheading,                 default: "Learn about us"
+      t.string     :about_section_1_year,             default: "2009-2011"
+      t.string     :about_section_1_heading,          default: "Our Humble Beginnings"
+      t.text       :about_section_1_body,             default: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+      t.attachment :about_section_1_image
+
+      t.string     :about_section_2_year,             default: "March 2012"
+      t.string     :about_section_2_heading,          default: "A Company Is Born"
+      t.text       :about_section_2_body,             default: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+      t.attachment :about_section_2_image
+
+      t.string     :about_section_3_year,             default: "January 2013"
+      t.string     :about_section_3_heading,          default: "Getting Down And Dirty"
+      t.text       :about_section_3_body,             default: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+      t.attachment :about_section_3_image
+
+
+
+
       t.timestamps null: false
     end
   end

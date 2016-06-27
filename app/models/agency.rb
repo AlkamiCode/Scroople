@@ -8,27 +8,24 @@ class Agency < ActiveRecord::Base
   }
 
   has_attached_file :header_image, default_url: "https://s3-us-west-2.amazonaws.com/scroopledev/agencies/header-bg.jpg", styles: {
-    # thumb: '100x100>',
-    # square: '200x200#',
-    # medium: '300x300>'
   }
 
   has_attached_file :portfolio_project_1_image, default_url: "https://s3-us-west-2.amazonaws.com/scroopledev/agencies/portfolio_project_1_image.png", styles: {
-    # thumb: '100x100>',
-    # square: '200x200#',
-    # medium: '300x300>'
   }
 
   has_attached_file :portfolio_project_2_image, default_url: "https://s3-us-west-2.amazonaws.com/scroopledev/agencies/portfolio_project_2_image.png", styles: {
-    # thumb: '100x100>',
-    # square: '200x200#',
-    # medium: '300x300>'
   }
 
   has_attached_file :portfolio_project_3_image, default_url: "https://s3-us-west-2.amazonaws.com/scroopledev/agencies/portfolio_project_3_image.png", styles: {
-    # thumb: '100x100>',
-    # square: '200x200#',
-    # medium: '300x300>'
+  }
+
+  has_attached_file :about_section_1_image, default_url: "https://s3-us-west-2.amazonaws.com/scroopledev/agencies/about_section_1_image.jpg", styles: {
+  }
+
+  has_attached_file :about_section_2_image, default_url: "https://s3-us-west-2.amazonaws.com/scroopledev/agencies/about_section_2_image.jpg", styles: {
+  }
+
+  has_attached_file :about_section_3_image, default_url: "https://s3-us-west-2.amazonaws.com/scroopledev/agencies/about_section_3_image.jpg", styles: {
   }
 
   # Validate the attached image is image/jpg, image/png, etc
