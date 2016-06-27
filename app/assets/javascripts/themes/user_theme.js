@@ -53,7 +53,7 @@ var realTimeInputUpdate = function () {
 }
 
 var addTextEditForm = function (clickedElement, innerContent) {
-    $(clickedElement).after('<form class="form-inline"><div class="form-group"><input type="text" class="form-control" id="master-input" placeholder="'+innerContent+'" autofocus></div><button id="remove-text-edit-form" type="button" data-original-content="'+innerContent+'" class="btn btn-danger">Cancel</button><button type="button" class="btn btn-success update-text">Submit</button></div>')
+    $(clickedElement).after('<form class="form-inline"><div class="form-group"><input type="text" class="form-control" id="master-input" placeholder="'+innerContent+'" autofocus></div><button id="remove-text-edit-form" type="button" data-original-content="'+innerContent+'" class="btn btn-danger">Cancel</button><button id="update-text" type="button" class="btn btn-success">Submit</button></div>')
 
     $("input").on("inputchange", function(element) {
         $(clickedElement).text(this.value)

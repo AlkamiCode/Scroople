@@ -68,7 +68,23 @@ class Themes::AgencyController < ApplicationController
       :portfolio_project_3_category,
       :portfolio_project_3_description,
       :portfolio_project_3_date,
-      :portfolio_project_3_client
+      :portfolio_project_3_client,
+
+      :about_subheading,
+      :about_section_1_year,
+      :about_section_1_heading,
+      :about_section_1_body,
+      :about_section_1_image,
+
+      :about_section_2_year,
+      :about_section_2_heading,
+      :about_section_2_body,
+      :about_section_2_image,
+
+      :about_section_3_year,
+      :about_section_3_heading,
+      :about_section_3_body,
+      :about_section_3_image
     )
   end
 end
