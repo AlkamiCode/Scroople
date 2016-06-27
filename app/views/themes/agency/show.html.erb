@@ -239,36 +239,11 @@
                         <p class="text-muted">Lead Designer</p>
                         <ul class="list-inline social-buttons">
                             <% @user.social_icons[0..2].each do |icon| %>
-                                <li><a href="" id="<%= icon.id %>"><i class="<%= icon.title %> social-icon"></i></a></li>
+                                <li>
+                                    <a href="<%= icon.url %>" target="_blank"><i id="<%= icon.id %>" class="<%= icon.title %> social-icon" data-theme-column="title"></i></a>
+                                </li>
                             <% end %>
                         </ul>
-
-                        <form action='/social_icons/1' accept-charset='UTF-8' method='post'>
-                            <input name='utf8' type='hidden' value='✓'><input type='hidden' name='_method' value='put'>
-                          <fieldset class="form-group">
-                            <input type="text" name="social_icon[url]" class="form-control" placeholder="Enter URL" autofocus>
-                          </fieldset>
-                          <fieldset class="form-group">
-                            <label class="radio-inline">
-                              <input type="radio" name="social_icon[title]" value="fa fa-twitter"> <i class="social-icon fa fa-2x fa-twitter"></i>
-                            </label>
-                            <label class="radio-inline">
-                              <input type="radio" name="social_icon[title]" value="fa fa-facebook"> <i class="social-icon fa fa-2x fa-facebook"></i>
-                            </label>
-                            <label class="radio-inline">
-                              <input type="radio" name="social_icon[title]" value="fa fa-linkedin"> <i class="social-icon fa fa-2x fa-linkedin"></i>
-                            </label>
-                            <label class="radio-inline">
-                              <input type="radio" name="social_icon[title]" value="fa fa-instagram"> <i class="social-icon fa fa-2x fa-instagram"></i>
-                            </label>
-                            <label class="radio-inline">
-                              <input type="radio" name="social_icon[title]" value="fa fa-github"> <i class="social-icon fa fa-2x fa-github"></i>
-                            </label>
-                          </fieldset>
-                          <button type="" class="btn btn-danger">Cancel</button>
-                          <button type="submit" class="btn btn-success">Submit</button>
-                        </form>
-
 
                     </div>
                 </div>

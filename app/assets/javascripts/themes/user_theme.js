@@ -4,15 +4,13 @@ var iconModal = function () {
 
 var editTextElement = function (themeID, themeColumn, newColumnValue) {
     if (newColumnValue === ""){
-        console.log("empty input value")
         event.preventDefault()
     } else {
-        console.log("begin ajax call")
         $.ajax({
             url: "/themes/agency/" + themeID,
             type: "PUT",
             data: {agency: { [themeColumn]: newColumnValue} },
-            dataType: "json",
+            dataType: "JSON",
             success: function(result) {
                 console.log("success!", result.results)
                 $(".form-inline").remove()
@@ -55,7 +53,7 @@ var realTimeInputUpdate = function () {
 }
 
 var addTextEditForm = function (clickedElement, innerContent) {
-    $(clickedElement).after('<form class="form-inline"><div class="form-group"><input type="text" class="form-control" id="master-input" placeholder="'+innerContent+'" autofocus></div><button type="button" data-original-content="'+innerContent+'" class="btn btn-danger">Cancel</button><button type="button" class="btn btn-success">Submit</button></div>')
+    $(clickedElement).after('<form class="form-inline"><div class="form-group"><input type="text" class="form-control" id="master-input" placeholder="'+innerContent+'" autofocus></div><button id="remove-text-edit-form" type="button" data-original-content="'+innerContent+'" class="btn btn-danger">Cancel</button><button type="button" class="btn btn-success update-text">Submit</button></div>')
 
     $("input").on("inputchange", function(element) {
         $(clickedElement).text(this.value)
@@ -72,14 +70,12 @@ var addTextEditForm = function (clickedElement, innerContent) {
         }
     })
 
-    $(".btn-danger").on("click", function() {
-        console.log(".btn-danger delete")
+    $("#remove-text-edit-form").on("click", function() {
         $(clickedElement).text($(this).data('original-content'))
         $('.form-inline').remove()
     })
 
-    $(".btn-success").on("click", function() {
-        console.log(".btn-success submit")
+    $("#update-text").on("click", function() {
         var themeID        = $("body").data("theme-id")
         var themeColumn    = $(this).parent().prev().data("theme-column")
         var newColumnValue = $(this).siblings().find("input").val()
@@ -89,6 +85,36 @@ var addTextEditForm = function (clickedElement, innerContent) {
 }
 
 $(document).ready(function(){
+
+    $(".social-icon").on("click", function() {
+        var socialIconID = event.target.id
+        var iconTarget   = event.target
+
+        $(event.target).closest(".social-buttons").append("<form id='edit-social-button' action='/social_icons/"+socialIconID+"' accept-charset='UTF-8' method='post'><input name='utf8' type='hidden' value='✓'><input type='hidden' name='_method' value='put'><fieldset class='form-group'><input id='url-input' type='text' name='social_icon[url]' class='form-control' placeholder='Enter URL' autofocus></fieldset><fieldset class='form-group'><label class='radio-inline'><input type='radio' name='social_icon[title]' value='fa fa-twitter'> <i class='social-icon fa fa-2x fa-twitter'></i></label><label class='radio-inline'><input type='radio' name='social_icon[title]' value='fa fa-facebook'> <i class='social-icon fa fa-2x fa-facebook'></i></label><label class='radio-inline'><input type='radio' name='social_icon[title]' value='fa fa-linkedin'><i class='social-icon fa fa-2x fa-linkedin'></i></label><label class='radio-inline'><input type='radio' name='social_icon[title]' value='fa fa-instagram'> <i class='social-icon fa fa-2x fa-instagram'></i></label><label class='radio-inline'><input type='radio' name='social_icon[title]' value='fa fa-github'> <i class='social-icon fa fa-2x fa-github'></i></label></fieldset><button id='remove-social-icon-form' type='button' class='btn btn-danger'>Cancel</button><button id='update-social-icon' type='button' class='btn btn-success'>Submit</button></form>")
+
+        $("#remove-social-icon-form").on("click", function() {
+            $("#edit-social-button").remove()
+        })
+
+        $("#update-social-icon").on("click", function() {
+            var iconTitle    = $(event.target).closest("#edit-social-button").find("input:checked").val()
+            var iconURL      = $(event.target).closest("#edit-social-button").find("#url-input").val()
+
+            $.ajax({
+                url: "/social_icons/" + socialIconID,
+                type: "PUT",
+                data: {social_icon: { title: iconTitle, url: iconURL} },
+                dataType: "JSON",
+                success: function(result) {
+                    console.log("success!", result.results)
+                    $(".social-buttons").find("#" + result.results.id).attr("class", iconTitle + " social-icon")
+                    $(".social-buttons").find("#" + result.results.id).closest("a").attr("href", iconURL)
+                    $("#edit-social-button").remove()
+                }
+            })
+        })
+    })
+
 
     // display users header image
     var headerImageURL = $("header").data("header-image-url")

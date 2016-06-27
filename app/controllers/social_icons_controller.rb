@@ -1,9 +1,16 @@
 class SocialIconsController < ApplicationController
+  respond_to :json, :html
+
   def update
     social_icon = SocialIcon.find(params[:id])
     social_icon.update(social_icon_params)
-    redirect_to :back
+
+    respond_to do |format|
+      format.html { respond_with :social_icon }
+      format.json { render json: { results: social_icon } }
+    end
   end
+
 
   private
 
