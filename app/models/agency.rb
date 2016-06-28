@@ -28,6 +28,15 @@ class Agency < ActiveRecord::Base
   has_attached_file :about_section_3_image, default_url: "https://s3-us-west-2.amazonaws.com/scroopledev/agencies/about_section_3_image.jpg", styles: {
   }
 
+  has_attached_file :team_member_1, default_url: "https://s3-us-west-2.amazonaws.com/scroopledev/agencies/team_member_1.jpg", styles: {
+  }
+
+  has_attached_file :team_member_2, default_url: "https://s3-us-west-2.amazonaws.com/scroopledev/agencies/team_member_2.jpg", styles: {
+  }
+
+  has_attached_file :team_member_3, default_url: "https://s3-us-west-2.amazonaws.com/scroopledev/agencies/team_member_3.jpg", styles: {
+  }
+
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :brand_logo, :content_type => /\Aimage\/.*\Z/
 end

@@ -84,7 +84,19 @@ class Themes::AgencyController < ApplicationController
       :about_section_3_year,
       :about_section_3_heading,
       :about_section_3_body,
-      :about_section_3_image
+      :about_section_3_image,
+
+      :team_subheading,
+      :team_member_1,
+      :team_member_1_name,
+      :team_member_1_role,
+      :team_member_2,
+      :team_member_2_name,
+      :team_member_2_role,
+      :team_member_3,
+      :team_member_3_name,
+      :team_member_3_role,
+      :team_footer_text
     )
   end
 end

@@ -59,7 +59,19 @@ class CreateAgencies < ActiveRecord::Migration
       t.text       :about_section_3_body,             default: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
       t.attachment :about_section_3_image
 
+      t.string     :team_subheading,                  default: "Our amazing team"
+      t.attachment :team_member_1
+      t.string     :team_member_1_name,               default: "Kate Garland"
+      t.string     :team_member_1_role,               default: "Prodcut Designer"
 
+      t.attachment :team_member_2
+      t.string     :team_member_2_name,               default: "Jack Jackingson"
+      t.string     :team_member_2_role,               default: "Lead Marketer"
+
+      t.attachment :team_member_3
+      t.string     :team_member_3_name,               default: "Jenny Jenningson"
+      t.string     :team_member_3_role,               default: "Co-founder/CEO"
+      t.text       :team_footer_text,                 default: "Write awesome stuff about your team!"
 
 
       t.timestamps null: false
