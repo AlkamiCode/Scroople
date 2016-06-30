@@ -19,8 +19,10 @@ var editTextElement = function (themeID, themeColumn, newColumnValue) {
     }
 }
 
-var editImageElement = function(targetColumn) {
-    $("body").append("<div class='modal fade' id="+targetColumn+" tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'><div class='modal-dialog' role='document'><div class='modal-content'><div class='modal-body'><form id='image-upload' enctype='multipart/form-data' action='/themes/agency/1' accept-charset='UTF-8' method='post'><fieldset class='client-logo-url-input' style='display:none;' class='form-group'><input type='text' name='' class='form-control' placeholder='Enter Client URL' autofocus></fieldset></br><input name='utf8' type='hidden' value='✓'><input type='hidden' name='_method' value='put'><input type='hidden' name='authenticity_token' value='g2i18zLyycMN3T5WTVJLZzcYOqFHbMsPrzkj3evOUWObohATRAxsfREBy/wfDwokeqhy3Z8zcJxqJOV91+M0EQ=='><input id='file' type='file' name='agency["+targetColumn+"]'><br><input type='submit' value='submit' disabled class='btn btn-primary'><button data-toggle='modal' data-target='#"+targetColumn+"' name='button' type='button' class='btn btn-danger'>Cancel</button></form></div></div></div></div>")
+var editImageElement = function(targetColumn, themeID) {
+    // pass themeName to this function
+
+    $("body").append("<div class='modal fade' id="+targetColumn+" tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'><div class='modal-dialog' role='document'><div class='modal-content'><div class='modal-body'><form id='image-upload' enctype='multipart/form-data' action='/themes/agency/"+themeID+"' accept-charset='UTF-8' method='post'><fieldset class='client-logo-url-input' style='display:none;' class='form-group'><input type='text' name='' class='form-control' placeholder='Enter Client URL' autofocus></fieldset></br><input name='utf8' type='hidden' value='✓'><input type='hidden' name='_method' value='put'><input type='hidden' name='authenticity_token' value='g2i18zLyycMN3T5WTVJLZzcYOqFHbMsPrzkj3evOUWObohATRAxsfREBy/wfDwokeqhy3Z8zcJxqJOV91+M0EQ=='><input id='file' type='file' name='agency["+targetColumn+"]'><br><input type='submit' value='submit' disabled class='btn btn-primary'><button data-toggle='modal' data-target='#"+targetColumn+"' name='button' type='button' class='btn btn-danger'>Cancel</button></form></div></div></div></div>")
 
     $("#" + targetColumn).modal("show")
 
@@ -146,7 +148,8 @@ $(document).ready(function(){
 
         } else if (eventTargetTag === "IMG" || event.target.id === "edit-background-image") {
             var targetColumn = event.target.dataset["themeColumn"]
-            editImageElement(targetColumn)
+            var themeID      = $("body").data("theme-id")
+            editImageElement(targetColumn, themeID )
 
         } else if (event.target.tagName === "I") {
             if (event.target.classList.contains("social-icon")) {
