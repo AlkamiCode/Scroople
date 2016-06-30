@@ -112,18 +112,22 @@ ActiveRecord::Schema.define(version: 20160623185004) do
     t.string   "client_logo_1_content_type"
     t.integer  "client_logo_1_file_size"
     t.datetime "client_logo_1_updated_at"
+    t.string   "client_logo_1_url",                      default: "http://www.alkami.io/"
     t.string   "client_logo_2_file_name"
     t.string   "client_logo_2_content_type"
     t.integer  "client_logo_2_file_size"
     t.datetime "client_logo_2_updated_at"
+    t.string   "client_logo_2_url",                      default: "http://www.alkami.io/"
     t.string   "client_logo_3_file_name"
     t.string   "client_logo_3_content_type"
     t.integer  "client_logo_3_file_size"
     t.datetime "client_logo_3_updated_at"
+    t.string   "client_logo_3_url",                      default: "http://www.alkami.io/"
     t.string   "client_logo_4_file_name"
     t.string   "client_logo_4_content_type"
     t.integer  "client_logo_4_file_size"
     t.datetime "client_logo_4_updated_at"
+    t.string   "client_logo_4_url",                      default: "http://www.alkami.io/"
     t.datetime "created_at",                                                                                                                                                                                                                                                                 null: false
     t.datetime "updated_at",                                                                                                                                                                                                                                                                 null: false
   end

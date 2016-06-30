@@ -99,9 +99,14 @@ class Themes::AgencyController < ApplicationController
       :team_footer_text,
 
       :client_logo_1,
+      :client_logo_1_url,
       :client_logo_2,
+      :client_logo_2_url,
       :client_logo_3,
-      :client_logo_4
+      :client_logo_3_url,
+      :client_logo_4,
+      :client_logo_4_url
+
     )
   end
 end

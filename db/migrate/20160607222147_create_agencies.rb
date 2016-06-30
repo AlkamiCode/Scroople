@@ -74,9 +74,13 @@ class CreateAgencies < ActiveRecord::Migration
       t.text       :team_footer_text,                 default: "Write awesome stuff about your team!"
 
       t.attachment :client_logo_1
+      t.string     :client_logo_1_url,                default: "http://www.alkami.io/"
       t.attachment :client_logo_2
+      t.string     :client_logo_2_url,                default: "http://www.alkami.io/"
       t.attachment :client_logo_3
+      t.string     :client_logo_3_url,                default: "http://www.alkami.io/"
       t.attachment :client_logo_4
+      t.string     :client_logo_4_url,                default: "http://www.alkami.io/"
 
 
       t.timestamps null: false
