@@ -259,7 +259,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <p class="large text-muted"><%= @user.agency.team_footer_text %></p>
+                    <p data-theme-column="team_footer_text" class="large text-muted"><%= @user.agency.team_footer_text %></p>
                 </div>
             </div>
         </div>
@@ -269,23 +269,23 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <%= image_tag "themes/agency/logos/envato.jpg", class: "img-responsive img-centered" %>
+                    <a href="#" target="_blank">
+                        <img src="<%= @user.agency.client_logo_1.url %>" class="img-responsive img-centered" data-theme-column="client_logo_1">
                     </a>
                 </div>
                 <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <%= image_tag "themes/agency/logos/designmodo.jpg", class: "img-responsive img-centered" %>
+                    <a href="#" target="_blank">
+                        <img src="<%= @user.agency.client_logo_2.url %>" class="img-responsive img-centered" data-theme-column="client_logo_2">
                     </a>
                 </div>
                 <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <%= image_tag "themes/agency/logos/themeforest.jpg", class: "img-responsive img-centered" %>
+                    <a href="#" target="_blank">
+                        <img src="<%= @user.agency.client_logo_3.url %>" class="img-responsive img-centered" data-theme-column="client_logo_3">
                     </a>
                 </div>
                 <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <%= image_tag "themes/agency/logos/creative-market.jpg", class: "img-responsive img-centered" %>
+                    <a href="#" target="_blank">
+                        <img src="<%= @user.agency.client_logo_4.url %>" class="img-responsive img-centered" data-theme-column="client_logo_4">
                     </a>
                 </div>
             </div>

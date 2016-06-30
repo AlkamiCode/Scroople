@@ -96,7 +96,12 @@ class Themes::AgencyController < ApplicationController
       :team_member_3,
       :team_member_3_name,
       :team_member_3_role,
-      :team_footer_text
+      :team_footer_text,
+
+      :client_logo_1,
+      :client_logo_2,
+      :client_logo_3,
+      :client_logo_4
     )
   end
 end

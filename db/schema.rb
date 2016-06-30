@@ -108,6 +108,22 @@ ActiveRecord::Schema.define(version: 20160623185004) do
     t.string   "team_member_3_name",                     default: "Jenny Jenningson"
     t.string   "team_member_3_role",                     default: "Co-founder/CEO"
     t.text     "team_footer_text",                       default: "Write awesome stuff about your team!"
+    t.string   "client_logo_1_file_name"
+    t.string   "client_logo_1_content_type"
+    t.integer  "client_logo_1_file_size"
+    t.datetime "client_logo_1_updated_at"
+    t.string   "client_logo_2_file_name"
+    t.string   "client_logo_2_content_type"
+    t.integer  "client_logo_2_file_size"
+    t.datetime "client_logo_2_updated_at"
+    t.string   "client_logo_3_file_name"
+    t.string   "client_logo_3_content_type"
+    t.integer  "client_logo_3_file_size"
+    t.datetime "client_logo_3_updated_at"
+    t.string   "client_logo_4_file_name"
+    t.string   "client_logo_4_content_type"
+    t.integer  "client_logo_4_file_size"
+    t.datetime "client_logo_4_updated_at"
     t.datetime "created_at",                                                                                                                                                                                                                                                                 null: false
     t.datetime "updated_at",                                                                                                                                                                                                                                                                 null: false
   end

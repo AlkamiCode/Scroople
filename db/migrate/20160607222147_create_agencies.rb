@@ -73,6 +73,11 @@ class CreateAgencies < ActiveRecord::Migration
       t.string     :team_member_3_role,               default: "Co-founder/CEO"
       t.text       :team_footer_text,                 default: "Write awesome stuff about your team!"
 
+      t.attachment :client_logo_1
+      t.attachment :client_logo_2
+      t.attachment :client_logo_3
+      t.attachment :client_logo_4
+
 
       t.timestamps null: false
     end
