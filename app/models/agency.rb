@@ -38,6 +38,7 @@ class Agency < ActiveRecord::Base
   }
 
   has_attached_file :client_logo_1, default_url: "https://s3-us-west-2.amazonaws.com/scroopledev/agencies/client_logo_1.jpg", styles: {
+    medium: "200x50"
   }
 
   has_attached_file :client_logo_2, default_url: "https://s3-us-west-2.amazonaws.com/scroopledev/agencies/client_logo_2.jpg", styles: {
