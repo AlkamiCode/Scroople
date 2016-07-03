@@ -90,6 +90,8 @@ class Themes::AgencyController < ApplicationController
       :team_member_1,
       :team_member_1_name,
       :team_member_1_role,
+      :team_member_1_social_icon_1_title,
+      :team_member_1_social_icon_1_url,
       :team_member_2,
       :team_member_2_name,
       :team_member_2_role,

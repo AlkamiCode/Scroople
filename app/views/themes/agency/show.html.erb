@@ -224,11 +224,9 @@
                         <h4 data-theme-column="team_member_1_name"><%= @user.agency.team_member_1_name %></h4>
                         <p data-theme-column="team_member_1_role"class="text-muted"><%= @user.agency.team_member_1_role %></p>
                         <ul class="list-inline social-buttons">
-                            <% @user.social_icons[0..2].each do |icon| %>
-                                <li>
-                                    <a href="<%= icon.url %>" target="_blank"><i id="<%= icon.id %>" class="<%= icon.title %> social-icon" data-theme-column="title"></i></a>
-                                </li>
-                            <% end %>
+                            <li>
+                                <a href="<%= @user.agency.team_member_1_social_icon_1_url %>" target="_blank" data-theme-column="team_member_1_social_icon_1_url"><i class="<%= @user.agency.team_member_1_social_icon_1_title %> social-icon"data-theme-column="team_member_1_social_icon_1_title"></i></a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -238,9 +236,7 @@
                         <h4 data-theme-column="team_member_2_name"><%= @user.agency.team_member_2_name %></h4>
                         <p data-theme-column="team_member_2_role" class="text-muted"><%= @user.agency.team_member_2_role %></p>
                         <ul class="list-inline social-buttons">
-                            <% @user.social_icons[3..5].each do |icon| %>
-                                <li><a href="<%= icon.url %>"><i class="<%= icon.title %>"></i></a></li>
-                            <% end %>
+
                         </ul>
                     </div>
                 </div>
@@ -250,9 +246,7 @@
                         <h4 data-theme-column="team_member_3_name"><%= @user.agency.team_member_3_name %></h4>
                         <p data-theme-column="team_member_3_role" class="text-muted"><%= @user.agency.team_member_3_role %></p>
                         <ul class="list-inline social-buttons">
-                            <% @user.social_icons[5..7].each do |icon| %>
-                                <li><a href="<%= icon.url %>"><i class="<%= icon.title %>"></i></a></li>
-                            <% end %>
+
                         </ul>
                     </div>
                 </div>

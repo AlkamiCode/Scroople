@@ -95,6 +95,8 @@ ActiveRecord::Schema.define(version: 20160623185004) do
     t.datetime "team_member_1_updated_at"
     t.string   "team_member_1_name",                     default: "Kate Garland"
     t.string   "team_member_1_role",                     default: "Prodcut Designer"
+    t.string   "team_member_1_social_icon_1_title",      default: "fa fa-facebook"
+    t.string   "team_member_1_social_icon_1_url",        default: "https://www.facebook.com/alkami.io"
     t.string   "team_member_2_file_name"
     t.string   "team_member_2_content_type"
     t.integer  "team_member_2_file_size"
@@ -128,21 +130,12 @@ ActiveRecord::Schema.define(version: 20160623185004) do
     t.integer  "client_logo_4_file_size"
     t.datetime "client_logo_4_updated_at"
     t.string   "client_logo_4_url",                      default: "http://www.alkami.io/"
+    t.string   "contact_us_subheading",                  default: "reach out with any questions"
     t.datetime "created_at",                                                                                                                                                                                                                                                                 null: false
     t.datetime "updated_at",                                                                                                                                                                                                                                                                 null: false
   end
 
   add_index "agencies", ["user_id"], name: "index_agencies_on_user_id", using: :btree
-
-  create_table "social_icons", force: :cascade do |t|
-    t.string   "title"
-    t.string   "url"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "social_icons", ["user_id"], name: "index_social_icons_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -164,5 +157,4 @@ ActiveRecord::Schema.define(version: 20160623185004) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "agencies", "users"
-  add_foreign_key "social_icons", "users"
 end

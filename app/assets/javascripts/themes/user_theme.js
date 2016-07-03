@@ -92,30 +92,34 @@ var addTextEditForm = function (clickedElement, innerContent) {
     })
 }
 
-var displayIconUpdateForm = function(socialIconID, iconTarget) {
-    $(event.target).closest(".social-buttons").append("<form id='edit-social-button' action='/social_icons/"+socialIconID+"' accept-charset='UTF-8' method='post'><input name='utf8' type='hidden' value='✓'><input type='hidden' name='_method' value='put'><fieldset class='form-group'><input id='url-input' type='text' name='social_icon[url]' class='form-control' placeholder='Enter URL' autofocus></fieldset><fieldset class='form-group'><label class='radio-inline'><input type='radio' name='social_icon[title]' value='fa fa-twitter'> <i class='social-icon fa fa-2x fa-twitter'></i></label><label class='radio-inline'><input type='radio' name='social_icon[title]' value='fa fa-facebook'> <i class='social-icon fa fa-2x fa-facebook'></i></label><label class='radio-inline'><input type='radio' name='social_icon[title]' value='fa fa-linkedin'><i class='social-icon fa fa-2x fa-linkedin'></i></label><label class='radio-inline'><input type='radio' name='social_icon[title]' value='fa fa-instagram'> <i class='social-icon fa fa-2x fa-instagram'></i></label><label class='radio-inline'><input type='radio' name='social_icon[title]' value='fa fa-github'> <i class='social-icon fa fa-2x fa-github'></i></label></fieldset><button id='remove-social-icon-form' type='button' class='btn btn-danger'>Cancel</button><button id='update-social-icon' type='button' class='btn btn-success'>Submit</button></form>")
+var displayIconUpdateForm = function(themeID, iconTarget, iconTitle, iconURL) {
+    $(event.target).closest(".social-buttons").append("<form id='edit-social-button' accept-charset='UTF-8' method='post'><input name='utf8' type='hidden' value='✓'><input type='hidden' name='_method' value='put'><fieldset class='form-group'><input id='url-input' type='text' name='agency["+iconURL+"]' class='form-control' placeholder='Enter URL' autofocus></fieldset><fieldset class='form-group'><label class='radio-inline'><input type='radio' name='agency["+iconTitle+"]' value='fa fa-twitter'> <i class='social-icon fa fa-2x fa-twitter'></i></label><label class='radio-inline'><input type='radio' name='agency["+iconTitle+"]' value='fa fa-facebook'> <i class='social-icon fa fa-2x fa-facebook'></i></label><label class='radio-inline'><input type='radio' name='agency["+iconTitle+"]' value='fa fa-linkedin'><i class='social-icon fa fa-2x fa-linkedin'></i></label><label class='radio-inline'><input type='radio' name='agency["+iconTitle+"]' value='fa fa-instagram'> <i class='social-icon fa fa-2x fa-instagram'></i></label><label class='radio-inline'><input type='radio' name='agency["+iconTitle+"]' value='fa fa-github'> <i class='social-icon fa fa-2x fa-github'></i></label></fieldset><button id='remove-social-icon-form' type='button' class='btn btn-danger'>Cancel</button><button id='update-social-icon' type='button' class='btn btn-success'>Submit</button></form>")
 
-        $("#remove-social-icon-form").on("click", function() {
-            $("#edit-social-button").remove()
-        })
+      $("#remove-social-icon-form").on("click", function() {
+          $("#edit-social-button").remove()
+      })
 
-        $("#update-social-icon").on("click", function() {
-            var iconTitle    = $(event.target).closest("#edit-social-button").find("input:checked").val()
-            var iconURL      = $(event.target).closest("#edit-social-button").find("#url-input").val()
+      $("#update-social-icon").on("click", function() {
+          var iconTitle    = $(event.target).closest("#edit-social-button").find("input:checked").val()
+          var iconURL      = $(event.target).closest("#edit-social-button").find("#url-input").val()
 
-            $.ajax({
-                url: "/social_icons/" + socialIconID,
-                type: "PUT",
-                data: {social_icon: { title: iconTitle, url: iconURL} },
-                dataType: "JSON",
-                success: function(result) {
-                    console.log("success!", result.results)
-                    $(".social-buttons").find("#" + result.results.id).attr("class", iconTitle + " social-icon")
-                    $(".social-buttons").find("#" + result.results.id).closest("a").attr("href", iconURL)
-                    $("#edit-social-button").remove()
-                }
-            })
-        })
+          // $(iconTarget).attr("class", "fa fa-twitter" + " social-icon")
+          // $(iconTarget).parent().attr("href", "http://twitter.com")
+
+
+          $.ajax({
+              url: "/themes/agency/" + themeID,
+              type: "PUT",
+              data: {agency: { team_member_1_social_icon_1_title: iconTitle, team_member_1_social_icon_1_url: iconURL} },
+              dataType: "JSON",
+              success: function(result) {
+                  console.log("success!", result.results)
+                  $(iconTarget).attr("class", iconTitle + " social-icon")
+                  $(iconTarget).parent().attr("href", iconURL)
+                  $("#edit-social-button").remove()
+              }
+          })
+      })
 }
 
 $(document).ready(function(){
@@ -157,10 +161,13 @@ $(document).ready(function(){
                     event.preventDefault()
                     console.log("only one input at a time hombre!")
                 } else {
-                    var socialIconID = event.target.id
-                    var iconTarget   = event.target
+                    // var socialIconID = event.target.id
+                    var themeID    = $("body").data("theme-id")
+                    var iconTarget = event.target
+                    var iconTitle  = event.target.dataset["themeColumn"]
+                    var iconURL    = event.target.parentElement.dataset["themeColumn"]
 
-                    displayIconUpdateForm(socialIconID, iconTarget)
+                    displayIconUpdateForm(themeID, iconTarget, iconTitle, iconURL)
                 }
             } else if (event.target.dataset["themeColumn"]) {
                 targetIcon    = event.target.dataset["themeColumn"]
