@@ -45,7 +45,7 @@
                 <% if current_user %>
                     <%= link_to "Choose This Theme", themes_agency_index_path(agency: {user_id: current_user.id}), method: "POST", class: "page-scroll btn btn-xl" %>
                 <% else %>
-                    <a class="btn btn-xl" href="" data-toggle="modal" data-target="#loginModal"> SignUp Or SignIn To Choose Theme</a>
+                    <a class="btn btn-xl" href="" data-toggle="modal" data-target="#loginModal">SignUp Or SignIn To Choose Theme</a>
                 <% end %>
             </div>
         </div>
