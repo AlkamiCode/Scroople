@@ -82,6 +82,8 @@ class CreateAgencies < ActiveRecord::Migration
       t.attachment :client_logo_4
       t.string     :client_logo_4_url,                default: "http://www.alkami.io/"
 
+      t.string     :contact_us_subheading,            default: "reach out with any questions"
+
 
       t.timestamps null: false
     end
