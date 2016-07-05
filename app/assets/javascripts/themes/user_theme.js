@@ -100,22 +100,28 @@ var displayIconUpdateForm = function(themeID, iconTarget, iconTitle, iconURL) {
       })
 
       $("#update-social-icon").on("click", function() {
-          // check to make sure input box is checked and input field is filled out!
-          var iconTitle    = $(event.target).closest("#edit-social-button").find("input:checked").val()
-          var iconURL      = $(event.target).closest("#edit-social-button").find("#url-input").val()
+          if($("#url-input").val()) {
+            console.log("not empty")
+            $("#update-social-icon").attr("disabled", false)
+            var iconTitle    = $(event.target).closest("#edit-social-button").find("input:checked").val()
+            var iconURL      = $(event.target).closest("#edit-social-button").find("#url-input").val()
 
-          $.ajax({
-              url: "/themes/agency/" + themeID,
-              type: "PUT",
-              data: {agency: { team_member_1_social_icon_1_title: iconTitle, team_member_1_social_icon_1_url: iconURL} },
-              dataType: "JSON",
-              success: function(result) {
-                  console.log("success!", result.results)
-                  $(iconTarget).attr("class", iconTitle + " social-icon")
-                  $(iconTarget).parent().attr("href", iconURL)
-                  $("#edit-social-button").remove()
-              }
-          })
+            $.ajax({
+                url: "/themes/agency/" + themeID,
+                type: "PUT",
+                data: {agency: { team_member_1_social_icon_1_title: iconTitle, team_member_1_social_icon_1_url: iconURL} },
+                dataType: "JSON",
+                success: function(result) {
+                    console.log("success!", result.results)
+                    $(iconTarget).attr("class", iconTitle + " social-icon")
+                    $(iconTarget).parent().attr("href", iconURL)
+                    $("#edit-social-button").remove()
+                }
+            })
+          } else {
+            console.log("empty input")
+            event.preventDefault()
+          }
       })
 }
 

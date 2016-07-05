@@ -92,12 +92,32 @@ class Themes::AgencyController < ApplicationController
       :team_member_1_role,
       :team_member_1_social_icon_1_title,
       :team_member_1_social_icon_1_url,
+      :team_member_1_social_icon_2_title,
+      :team_member_1_social_icon_2_url,
+      :team_member_1_social_icon_3_title,
+      :team_member_1_social_icon_3_url,
+
       :team_member_2,
       :team_member_2_name,
       :team_member_2_role,
+      :team_member_2_social_icon_1_title,
+      :team_member_2_social_icon_1_url,
+      :team_member_2_social_icon_2_title,
+      :team_member_2_social_icon_2_url,
+      :team_member_2_social_icon_3_title,
+      :team_member_2_social_icon_3_url,
+
+
       :team_member_3,
       :team_member_3_name,
       :team_member_3_role,
+      :team_member_3_social_icon_1_title,
+      :team_member_3_social_icon_1_url,
+      :team_member_3_social_icon_2_title,
+      :team_member_3_social_icon_2_url,
+      :team_member_3_social_icon_3_title,
+      :team_member_3_social_icon_3_url,
+
       :team_footer_text,
 
       :client_logo_1,
