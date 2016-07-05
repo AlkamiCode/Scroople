@@ -19,5 +19,6 @@
       <%= f.password_field :password_confirmation, class: 'form-control' %>
     </div>
      <%= f.submit 'Sign up', :class => 'button right' %>
+     <%= link_to "Already have account? Sign In", user_session_path %>
   <% end %>
 </div>
