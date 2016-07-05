@@ -127,8 +127,14 @@ class Themes::AgencyController < ApplicationController
       :client_logo_3,
       :client_logo_3_url,
       :client_logo_4,
-      :client_logo_4_url
+      :client_logo_4_url,
 
+      :theme_social_icon_1_title,
+      :theme_social_icon_1_url,
+      :theme_social_icon_2_title,
+      :theme_social_icon_2_url,
+      :theme_social_icon_3_title,
+      :theme_social_icon_3_url
     )
   end
 end

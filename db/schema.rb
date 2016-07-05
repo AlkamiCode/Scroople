@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160623185004) do
+ActiveRecord::Schema.define(version: 20160613182347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -147,6 +147,12 @@ ActiveRecord::Schema.define(version: 20160623185004) do
     t.datetime "client_logo_4_updated_at"
     t.string   "client_logo_4_url",                      default: "http://www.alkami.io/"
     t.string   "contact_us_subheading",                  default: "reach out with any questions"
+    t.string   "theme_social_icon_1_title",              default: "fa fa-facebook"
+    t.string   "theme_social_icon_1_url",                default: "https://www.facebook.com/alkami.io"
+    t.string   "theme_social_icon_2_title",              default: "fa fa-twitter"
+    t.string   "theme_social_icon_2_url",                default: "https://twitter.com/AlkamiWeb"
+    t.string   "theme_social_icon_3_title",              default: "fa fa-linkedin"
+    t.string   "theme_social_icon_3_url",                default: "https://www.linkedin.com/company/alkami"
     t.datetime "created_at",                                                                                                                                                                                                                                                                 null: false
     t.datetime "updated_at",                                                                                                                                                                                                                                                                 null: false
   end

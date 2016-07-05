@@ -104,6 +104,12 @@ class CreateAgencies < ActiveRecord::Migration
 
       t.string     :contact_us_subheading,             default: "reach out with any questions"
 
+      t.string     :theme_social_icon_1_title,          default: "fa fa-facebook"
+      t.string     :theme_social_icon_1_url,            default: "https://www.facebook.com/alkami.io"
+      t.string     :theme_social_icon_2_title,          default: "fa fa-twitter"
+      t.string     :theme_social_icon_2_url,            default: "https://twitter.com/AlkamiWeb"
+      t.string     :theme_social_icon_3_title,          default: "fa fa-linkedin"
+      t.string     :theme_social_icon_3_url,            default: "https://www.linkedin.com/company/alkami"
 
       t.timestamps null: false
     end

@@ -360,11 +360,14 @@
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        <li>
+                            <a href="<%= @user.agency.theme_social_icon_1_url %>" target="_blank" data-theme-column="theme_social_icon_1_url"><i class="<%= @user.agency.theme_social_icon_1_title %> social-icon"data-theme-column="theme_social_icon_1_title"></i></a>
                         </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        <li>
+                            <a href="<%= @user.agency.theme_social_icon_2_url %>" target="_blank" data-theme-column="theme_social_icon_2_url"><i class="<%= @user.agency.theme_social_icon_2_title %> social-icon"data-theme-column="theme_social_icon_2_title"></i></a>
                         </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        <li>
+                            <a href="<%= @user.agency.theme_social_icon_3_url %>" target="_blank" data-theme-column="theme_social_icon_3_url"><i class="<%= @user.agency.theme_social_icon_3_title %> social-icon"data-theme-column="theme_social_icon_3_title"></i></a>
                         </li>
                     </ul>
                 </div>
