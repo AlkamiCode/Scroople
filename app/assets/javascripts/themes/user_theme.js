@@ -95,6 +95,13 @@ var addTextEditForm = function (clickedElement, innerContent) {
 var displayIconUpdateForm = function(themeID, iconTarget, iconTitle, iconURL) {
     $(event.target).closest(".social-buttons").append("<form id='edit-social-button' accept-charset='UTF-8' method='post'><input name='utf8' type='hidden' value='✓'><input type='hidden' name='_method' value='put'><fieldset class='form-group'><input id='url-input' type='text' name='agency["+iconURL+"]' class='form-control' placeholder='Enter URL' autofocus></fieldset><fieldset class='form-group'><label class='radio-inline'><input type='radio' name='agency["+iconTitle+"]' value='fa fa-twitter'> <i class='social-icon fa fa-2x fa-twitter'></i></label><label class='radio-inline'><input type='radio' name='agency["+iconTitle+"]' value='fa fa-facebook'> <i class='social-icon fa fa-2x fa-facebook'></i></label><label class='radio-inline'><input type='radio' name='agency["+iconTitle+"]' value='fa fa-linkedin'><i class='social-icon fa fa-2x fa-linkedin'></i></label><label class='radio-inline'><input type='radio' name='agency["+iconTitle+"]' value='fa fa-instagram'> <i class='social-icon fa fa-2x fa-instagram'></i></label><label class='radio-inline'><input type='radio' name='agency["+iconTitle+"]' value='fa fa-github'> <i class='social-icon fa fa-2x fa-github'></i></label></fieldset><button id='remove-social-icon-form' type='button' class='btn btn-danger'>Cancel</button><button id='update-social-icon' type='button' class='btn btn-success'>Submit</button></form>")
 
+    $("input").on("keydown", function(key) {
+        // prevent submittion using enter key
+        if (key.keyCode === 13) {
+          event.preventDefault()
+        }
+    })
+
       $("#remove-social-icon-form").on("click", function() {
           $("#edit-social-button").remove()
       })
