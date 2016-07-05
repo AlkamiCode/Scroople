@@ -9,5 +9,4 @@ class User < ActiveRecord::Base
   format: { with: VALID_EMAIL_REGEX }
 
   has_one  :agency
-  has_many :social_icons
 end
