@@ -100,12 +100,9 @@ var displayIconUpdateForm = function(themeID, iconTarget, iconTitle, iconURL) {
       })
 
       $("#update-social-icon").on("click", function() {
+          // check to make sure input box is checked and input field is filled out!
           var iconTitle    = $(event.target).closest("#edit-social-button").find("input:checked").val()
           var iconURL      = $(event.target).closest("#edit-social-button").find("#url-input").val()
-
-          // $(iconTarget).attr("class", "fa fa-twitter" + " social-icon")
-          // $(iconTarget).parent().attr("href", "http://twitter.com")
-
 
           $.ajax({
               url: "/themes/agency/" + themeID,

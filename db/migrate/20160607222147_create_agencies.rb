@@ -65,14 +65,32 @@ class CreateAgencies < ActiveRecord::Migration
       t.string     :team_member_1_role,                default: "Prodcut Designer"
       t.string     :team_member_1_social_icon_1_title, default: "fa fa-facebook"
       t.string     :team_member_1_social_icon_1_url,   default: "https://www.facebook.com/alkami.io"
+      t.string     :team_member_1_social_icon_2_title, default: "fa fa-twitter"
+      t.string     :team_member_1_social_icon_2_url,   default: "https://twitter.com/AlkamiWeb"
+      t.string     :team_member_1_social_icon_3_title, default: "fa fa-linkedin"
+      t.string     :team_member_1_social_icon_3_url,   default: "https://www.linkedin.com/company/alkami"
 
       t.attachment :team_member_2
       t.string     :team_member_2_name,                default: "Jack Jackingson"
       t.string     :team_member_2_role,                default: "Lead Marketer"
+      t.string     :team_member_2_social_icon_1_title, default: "fa fa-facebook"
+      t.string     :team_member_2_social_icon_1_url,   default: "https://www.facebook.com/alkami.io"
+      t.string     :team_member_2_social_icon_2_title, default: "fa fa-twitter"
+      t.string     :team_member_2_social_icon_2_url,   default: "https://twitter.com/AlkamiWeb"
+      t.string     :team_member_2_social_icon_3_title, default: "fa fa-linkedin"
+      t.string     :team_member_2_social_icon_3_url,   default: "https://www.linkedin.com/company/alkami"
+
 
       t.attachment :team_member_3
       t.string     :team_member_3_name,                default: "Jenny Jenningson"
       t.string     :team_member_3_role,                default: "Co-founder/CEO"
+      t.string     :team_member_3_social_icon_1_title, default: "fa fa-facebook"
+      t.string     :team_member_3_social_icon_1_url,   default: "https://www.facebook.com/alkami.io"
+      t.string     :team_member_3_social_icon_2_title, default: "fa fa-twitter"
+      t.string     :team_member_3_social_icon_2_url,   default: "https://twitter.com/AlkamiWeb"
+      t.string     :team_member_3_social_icon_3_title, default: "fa fa-linkedin"
+      t.string     :team_member_3_social_icon_3_url,   default: "https://www.linkedin.com/company/alkami"
+
       t.text       :team_footer_text,                  default: "Write awesome stuff about your team!"
 
       t.attachment :client_logo_1
