@@ -41,10 +41,7 @@
 
     <header data-header-image-url="<%= @user.agency.header_image.url %>">
         <div class="container">
-            <div class="intro-text">
-                <a>
-                    <i data-theme-column="header_image" data-toggle="modal" data-target="#myModal" id="edit-background-image" class="fa fa-2x fa-pencil-square-o" aria-hidden="true"></i>
-                </a>
+            <div class="intro-text" id="background-image-edit-icon">
                 <h3 class="intro-lead-in" data-theme-column="intro_lead_in"><%= @user.agency.intro_lead_in %></h3>
 
                 <h2 class="intro-heading" data-theme-column="intro_heading"><%= @user.agency.intro_heading %></h2>

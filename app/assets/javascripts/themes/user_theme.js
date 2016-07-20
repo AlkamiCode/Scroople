@@ -133,6 +133,8 @@ var displayIconUpdateForm = function(themeID, iconTarget, iconTitle, iconURL) {
 }
 
 $(document).ready(function(){
+    $("#background-image-edit-icon").prepend("<a><i data-theme-column='header_image' data-toggle='modal' data-target='#myModal' id='edit-background-image' class='fa fa-2x fa-pencil-square-o' aria-hidden='true'></i></a>")
+
     // display users header image
     var headerImageURL = $("header").data("header-image-url")
     $("header").css("background-image", "url("+headerImageURL+")")
